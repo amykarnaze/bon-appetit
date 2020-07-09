@@ -58,12 +58,14 @@ main {
   background-color: #a9b661;
   color: #283618;
   font-weight: bold;
+  height: 80vh;
 }
 
 .search-bar {
   display: flex;
   justify-content: center;
   padding-bottom: 1vh;
+  padding-top: 1vh;
 }
 
 .search-bar label {
@@ -86,6 +88,17 @@ main {
   padding: 0.2em 1em;
   border-radius: 1em;
   outline: none;
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding-left: 2vw;
+  overflow-y: scroll;
+  height: 75vh;
+}
+
+.recipe-list img {
+  height: 20vh;
 }
 
 /* colors Pallete
