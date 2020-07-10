@@ -47,6 +47,7 @@ describe('Recipe', function () {
                 'hor d\'oeuvre'
             ]
         };
+
         recipe = new Recipe(recipeData);
     });
 
@@ -100,6 +101,18 @@ describe('Recipe', function () {
 
     it('should have a name', function () {
         expect(recipe.name).to.deep.equal('Loaded Chocolate Chip Pudding Cookie Cups');
+    });
+
+    it('should have a default tag', function () {
+         var recipeData = {
+             'id': 595736,
+             'image': 'test-src',
+             'ingredients': [],
+             'instructions': [],
+             'name': 'Loaded Chocolate Chip Pudding Cookie Cups',
+         };
+         const recipeMissingTags = new Recipe(recipeData);
+         expect(recipeMissingTags.tags).to.deep.equal([]);
     });
 
     it('should have tags', function () {
