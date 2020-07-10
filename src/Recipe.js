@@ -36,8 +36,43 @@ getInstructions() {
     // console.log(this.instructions)
     return this.instructions
 }
+  
+  getIngredientsAsList() {
+    /* 
+    I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
+    [
+        {
+          id: 20081,
+          quantity: {
+            amount: 1.5,
+            unit: 'c',
+          },
+        },
+        {
+          id: 18372,
+          quantity: {
+            amount: 0.5,
+            unit: 'tsp',
+          },
+        },
+      ]
+      I also have an array of objects representing a key for ingredients with and id that is a number and a name that is the string name of the ingredient
+      I want to return an array of strings with equal length to the recipe ingredients
+      I could use map to build that new array
+      At each iteration I concat a string using the quantity.amount quantity .units and then need the matching name from the ingredients key
+      I can get this with the find prototype
+      returning the name property of the first instance where the ids match
+      */
+    return this.ingredients.map((recipeIngredient) => {
+      const ingredientName = ingredientsData.find((ingredientFromKey) => {
+        return ingredientFromKey.id === recipeIngredient.id;
+      }).name;
+
+      return `${recipeIngredient.quantity.amount}${recipeIngredient.quantity.unit} ${ingredientName}`;
+    });
+  }
 };
 
 if (typeof module !== 'undefined') {
-    module.exports = Recipe;
-};
+  module.exports = Recipe;
+}
