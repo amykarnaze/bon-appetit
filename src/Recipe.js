@@ -2,39 +2,76 @@
 const ingredientsData = require('../data/ingredients');
 
 class Recipe {
-        constructor(recipeData) {
-            this.id = recipeData.id;
-            this.image = recipeData.image;
-            this.ingredients = recipeData.ingredients;
-            this.instructions= recipeData.instructions;
-            this.name = recipeData.name;
-            this.tags = recipeData.tags;
-    }
+  constructor(recipeData) {
+    this.id = recipeData.id;
+    this.image = recipeData.image;
+    this.ingredients = recipeData.ingredients;
+    this.instructions = recipeData.instructions;
+    this.name = recipeData.name;
+    this.tags = recipeData.tags;
+  }
 
-    getInstructions() {
-        console.log(this.instructions)
-        return this.instructions
-    }
+  getInstructions() {
+    console.log(this.instructions);
+    return this.instructions;
+  }
 
-    getIngredientCost() {
-        return this.ingredients.reduce((sum, recipeIngredient) => {
-            // console.log(recipeIngredient);
-                                        console.log(ingredientsData);
+  getIngredientCost() {
+    return this.ingredients.reduce((sum, recipeIngredient) => {
+      // console.log(recipeIngredient);
+      console.log(ingredientsData);
 
-            let targetIngredient = ingredientsData.find(ingredient => {
-                            console.log(ingredient);
-                            console.log(ingredientsData);
+      let targetIngredient = ingredientsData.find((ingredient) => {
+        console.log(ingredient);
+        console.log(ingredientsData);
 
-                return ingredient.id === recipeIngredient.id;
-            });
-            // let ingredientAmount;
-            sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
-            console.log(sum)
-            return sum;
-        }, 0);
-    };
-};
+        return ingredient.id === recipeIngredient.id;
+      });
+      // let ingredientAmount;
+      sum +=
+        recipeIngredient.quantity.amount *
+        targetIngredient.estimatedCostInCents;
+      console.log(sum);
+      return sum;
+    }, 0);
+  }
+
+  getIngredientsAsList() {
+    /* 
+    I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
+    [
+        {
+          id: 20081,
+          quantity: {
+            amount: 1.5,
+            unit: 'c',
+          },
+        },
+        {
+          id: 18372,
+          quantity: {
+            amount: 0.5,
+            unit: 'tsp',
+          },
+        },
+      ]
+      I also have an array of objects representing a key for ingredients with and id that is a number and a name that is the string name of the ingredient
+      I want to return an array of strings with equal length to the recipe ingredients
+      I could use map to build that new array
+      At each iteration I concat a string using the quantity.amount quantity .units and then need the matching name from the ingredients key
+      I can get this with the find prototype
+      returning the name property of the first instance where the ids match
+      */
+    return this.ingredients.map((recipeIngredient) => {
+      const ingredientName = ingredientsData.find((ingredientFromKey) => {
+        return ingredientFromKey.id === recipeIngredient.id;
+      }).name;
+
+      return `${recipeIngredient.quantity.amount}${recipeIngredient.quantity.unit} ${ingredientName}`;
+    });
+  }
+}
 
 if (typeof module !== 'undefined') {
-    module.exports = Recipe;
-};
+  module.exports = Recipe;
+}
