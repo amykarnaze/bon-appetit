@@ -11,15 +11,16 @@ class Recipe {
             this.tags = recipeData.tags || [];
     }
 
-    getIngredientCost() {
-        return this.ingredients.reduce((sum, recipeIngredient) => {
-            // console.log(recipeIngredient);
+    // make sure the list of missing ingredients is passed in
+    getIngredientCost(missingIngredientList) {
+        return missingIngredientList.reduce((sum, recipeIngredient) => {
+            console.log(recipeIngredient);
                                         // console.log(ingredientsData);
-
+            
             let targetIngredient = ingredientsData.find(ingredient => {
                             // console.log(ingredient);
                             // console.log(ingredientsData);
-
+              
                 return ingredient.id === recipeIngredient.id;
             });
             // let ingredientAmount;
@@ -35,7 +36,6 @@ getInstructions() {
     // console.log(this.instructions)
     return this.instructions
 }
-
 };
 
 if (typeof module !== 'undefined') {
