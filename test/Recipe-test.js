@@ -132,7 +132,18 @@ describe('Recipe', function () {
             const expectedCost = (142 * 1.5) + (582 * 0.5);
             expect(recipe.getIngredientCost()).to.equal(expectedCost);
         });
+
+         it('should get cost of all ingredients with unknown ingredient id', function () {
+            recipe.ingredients[0].id = '99999';
+            const expectedCost = (582 * 0.5);
+
+            expect(recipe.getIngredientCost()).to.equal(expectedCost);
+
     });
+    });
+
+       
+
 
     describe('getInstructions', function () {
         it('should be able to show instructions', () => {

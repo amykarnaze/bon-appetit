@@ -23,12 +23,14 @@ class Recipe {
                 return ingredient.id === recipeIngredient.id;
             });
             // let ingredientAmount;
-            sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
+            if (targetIngredient) {
+                sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
+            }
             // console.log(sum)
             return sum;
         }, 0);
     };
-    
+
 getInstructions() {
     // console.log(this.instructions)
     return this.instructions
