@@ -87,8 +87,15 @@ findRecipesByIngredient(savedRecipes, ingredientName) {
          })
       return acc;
     }, []);
+
+    // console.log(matchedRecipes)
         return matchedRecipes;
   }
+
+  // do search last
+  // function name that takes in the same parameters
+// invoke each method
+// 
 
 }
 
@@ -109,4 +116,4 @@ findRecipesByIngredient(savedRecipes, ingredientName) {
 
 if (typeof module !== 'undefined') {
   module.exports = User;
-}
+
