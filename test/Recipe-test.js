@@ -47,6 +47,7 @@ describe('Recipe', function () {
                 'hor d\'oeuvre'
             ]
         };
+
         recipe = new Recipe(recipeData);
     });
 
@@ -102,6 +103,18 @@ describe('Recipe', function () {
         expect(recipe.name).to.deep.equal('Loaded Chocolate Chip Pudding Cookie Cups');
     });
 
+    it('should have a default tag', function () {
+         var recipeData = {
+             'id': 595736,
+             'image': 'test-src',
+             'ingredients': [],
+             'instructions': [],
+             'name': 'Loaded Chocolate Chip Pudding Cookie Cups',
+         };
+         const recipeMissingTags = new Recipe(recipeData);
+         expect(recipeMissingTags.tags).to.deep.equal([]);
+    });
+
     it('should have tags', function () {
         var expectedTags = [
             'antipasti',
@@ -120,8 +133,6 @@ describe('Recipe', function () {
             const missingIngredientList = recipe.ingredients;
             expect(recipe.getIngredientCost(missingIngredientList)).to.equal(expectedCost);
         });
-<<<<<<< Updated upstream
-=======
 
          it('should get cost of all ingredients with unknown ingredient id', function () {
             recipe.ingredients[0].id = '99999';
@@ -145,7 +156,6 @@ describe('Recipe', function () {
                 }
             ]);
         });
->>>>>>> Stashed changes
     });
 
     describe('getInstructions', function () {

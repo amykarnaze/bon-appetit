@@ -8,7 +8,7 @@ class Recipe {
             this.ingredients = recipeData.ingredients;
             this.instructions= recipeData.instructions;
             this.name = recipeData.name;
-            this.tags = recipeData.tags;
+            this.tags = recipeData.tags || [];
     }
 
     // make sure the list of missing ingredients is passed in
@@ -24,7 +24,6 @@ class Recipe {
                 return ingredient.id === recipeIngredient.id;
             });
             // let ingredientAmount;
-
             if (targetIngredient) {
                 sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
             }
@@ -36,6 +35,8 @@ class Recipe {
 getInstructions() {
     // console.log(this.instructions)
     return this.instructions
+}
+};
 
 if (typeof module !== 'undefined') {
     module.exports = Recipe;
