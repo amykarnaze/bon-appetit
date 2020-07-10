@@ -1,4 +1,5 @@
 /* eslint-disable */
+const ingredientsData = require('../data/ingredients');
 
 class Recipe {
         constructor(recipeData) {
@@ -19,10 +20,11 @@ class Recipe {
             let targetIngredient = ingredientsData.find(ingredient => {
                             // console.log(ingredient);
                             // console.log(ingredientsData);
-
+              
                 return ingredient.id === recipeIngredient.id;
             });
             // let ingredientAmount;
+
             if (targetIngredient) {
                 sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
             }
@@ -34,9 +36,7 @@ class Recipe {
 getInstructions() {
     // console.log(this.instructions)
     return this.instructions
->>>>>>> Stashed changes
-}
 
 if (typeof module !== 'undefined') {
     module.exports = Recipe;
-}
+};

@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 /* eslint-disable */
 
 const ingredientsData = require('../data/ingredients');
@@ -89,6 +87,7 @@ findRecipesByIngredient(savedRecipes, ingredientName) {
          })
       return acc;
     }, []);
+
     // console.log(matchedRecipes)
         return matchedRecipes;
   }
@@ -97,6 +96,7 @@ findRecipesByIngredient(savedRecipes, ingredientName) {
   // function name that takes in the same parameters
 // invoke each method
 // 
+
 }
 
 // search recipesToCook by name OR ingredient
@@ -116,5 +116,4 @@ findRecipesByIngredient(savedRecipes, ingredientName) {
 
 if (typeof module !== 'undefined') {
   module.exports = User;
-}
->>>>>>> Stashed changes
+

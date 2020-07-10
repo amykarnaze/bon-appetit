@@ -21,7 +21,7 @@ describe('Pantry', function () {
     expect(Pantry).to.be.a('function');
 });
 
-it('should be an instance of User', function() {
+it('should be an instance of Pantry', function() {
     expect(pantry).to.be.an.instanceof(Pantry);
 });
 

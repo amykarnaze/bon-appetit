@@ -147,4 +147,20 @@ describe('Recipe', function () {
         });
 >>>>>>> Stashed changes
     });
+
+    describe('getInstructions', function () {
+        it('should be able to show instructions', () => {
+            expect(recipe.instructions).to.deep.equal([
+                {
+                    'instruction': 'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
+                    'number': 1
+                },
+                {
+                    'instruction': 'Add egg and vanilla and mix until combined.',
+                    'number': 2
+                }
+            ]);
+        });
     });
+    
+ });

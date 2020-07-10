@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 /* eslint-disable */
 
 const expect = require('chai').expect;
@@ -125,10 +123,9 @@ describe('User', function () {
     describe('findRecipesByIngredient', function () {
         it('should be able to find a recipe by ingredient', () => {
             let recipes = [recipe1]
-        
          expect(user1.findRecipesByIngredient(recipes, 'eggs')).to.deep.equal([recipe1]);
 
     });
     });
+
     });
->>>>>>> Stashed changes
