@@ -10,8 +10,31 @@ class Recipe {
             this.tags = recipeData.tags;
     }
 
-    getIngredientCost() {
-    }
+    // make sure the list of missing ingredients is passed in
+    getIngredientCost(missingIngredientList) {
+        return missingIngredientList.reduce((sum, recipeIngredient) => {
+            console.log(recipeIngredient);
+                                        // console.log(ingredientsData);
+            
+            let targetIngredient = ingredientsData.find(ingredient => {
+                            // console.log(ingredient);
+                            // console.log(ingredientsData);
+
+                return ingredient.id === recipeIngredient.id;
+            });
+            // let ingredientAmount;
+            if (targetIngredient) {
+                sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
+            }
+            // console.log(sum)
+            return sum;
+        }, 0);
+    };
+
+getInstructions() {
+    // console.log(this.instructions)
+    return this.instructions
+>>>>>>> Stashed changes
 }
 
 if (typeof module !== 'undefined') {
