@@ -8,31 +8,32 @@ class Recipe {
             this.ingredients = recipeData.ingredients;
             this.instructions= recipeData.instructions;
             this.name = recipeData.name;
-            this.tags = recipeData.tags;
-    }
-
-    getInstructions() {
-        console.log(this.instructions)
-        return this.instructions
+            this.tags = recipeData.tags || [];
     }
 
     getIngredientCost() {
         return this.ingredients.reduce((sum, recipeIngredient) => {
             // console.log(recipeIngredient);
-                                        console.log(ingredientsData);
+                                        // console.log(ingredientsData);
 
             let targetIngredient = ingredientsData.find(ingredient => {
-                            console.log(ingredient);
-                            console.log(ingredientsData);
+                            // console.log(ingredient);
+                            // console.log(ingredientsData);
 
                 return ingredient.id === recipeIngredient.id;
             });
             // let ingredientAmount;
             sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
-            console.log(sum)
+            // console.log(sum)
             return sum;
         }, 0);
     };
+    
+getInstructions() {
+    // console.log(this.instructions)
+    return this.instructions
+}
+
 };
 
 if (typeof module !== 'undefined') {
