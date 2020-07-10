@@ -11,29 +11,31 @@ class Recipe {
             this.tags = recipeData.tags;
     }
 
-    getInstructions() {
-        console.log(this.instructions)
-        return this.instructions
-    }
-
-    getIngredientCost() {
-        return this.ingredients.reduce((sum, recipeIngredient) => {
-            // console.log(recipeIngredient);
-                                        console.log(ingredientsData);
-
+    // make sure the list of missing ingredients is passed in
+    getIngredientCost(missingIngredientList) {
+        return missingIngredientList.reduce((sum, recipeIngredient) => {
+            console.log(recipeIngredient);
+                                        // console.log(ingredientsData);
+            
             let targetIngredient = ingredientsData.find(ingredient => {
-                            console.log(ingredient);
-                            console.log(ingredientsData);
-
+                            // console.log(ingredient);
+                            // console.log(ingredientsData);
+              
                 return ingredient.id === recipeIngredient.id;
             });
             // let ingredientAmount;
-            sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
-            console.log(sum)
+
+            if (targetIngredient) {
+                sum += (recipeIngredient.quantity.amount * targetIngredient.estimatedCostInCents);
+            }
+            // console.log(sum)
             return sum;
         }, 0);
     };
-};
+
+getInstructions() {
+    // console.log(this.instructions)
+    return this.instructions
 
 if (typeof module !== 'undefined') {
     module.exports = Recipe;
