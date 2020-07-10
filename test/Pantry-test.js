@@ -22,62 +22,10 @@ describe('Pantry', function () {
   it('should have a property of ingredients', function () {
     expect(pantry.ingredients).to.deep.equal([]);
   });
-  describe('hasAllIngredients', function () {
-    it('should tell me if it has the ingrediets in a given list of ingredients', function () {
-      // need to build a function that  when given an array of ingredients checks them against its own ingredients and returns a boolean if it has them all
-
-      // class Ingredient {
-      //   constructor(ingredient) {
-      //     this.id = ingredient.id;
-      //     this.name = ingredient.name;
-      //     this.estimatedCostInCents = ingredient.estimatedCostInCents;
-      //   }
-      // }
-
-      const ingredientList1 = [
-        {
-          id: 20081,
-          quantity: {
-            amount: 1.5,
-            unit: 'c',
-          },
-        },
-      ];
-
-      const mypantry = new Pantry([
-        {
-          amount: 4,
-          ingredient: 20081,
-        },
-      ]);
-
-      //have the panty with ingredients
-      //create a list of ingredients1 that i know the pantry has
-      expect(mypantry.hasAllIngredients(ingredientList1)).to.equal(true);
-    });
-
-    it.only('should tell me if it does not have the ingrediets in a given list of ingredients', function () {
-      // need to build a function that  when given an array of ingredients checks them against its own ingredients and returns a boolean if it has them all
-
-      // class Ingredient {
-      //   constructor(ingredient) {
-      //     this.id = ingredient.id;
-      //     this.name = ingredient.name;
-      //     this.estimatedCostInCents = ingredient.estimatedCostInCents;
-      //   }
-      // }
-
-      const ingredientList1 = [
-        {
-          id: 20081,
-          quantity: {
-            amount: 1.5,
-            unit: 'c',
-          },
-        },
-      ];
-
-      const mypantry = new Pantry([
+  describe.only('hasAllIngredients', function () {
+    let myPantry;
+    beforeEach(function () {
+      myPantry = new Pantry([
         {
           amount: 4,
           ingredient: 20081,
@@ -87,10 +35,68 @@ describe('Pantry', function () {
           amount: 4,
         },
       ]);
+    });
+    it('should tell me if it has the ingredients in a given list of ingredients', function () {
+      const ingredientList1 = [
+        {
+          id: 20081,
+          quantity: {
+            amount: 1.5,
+            unit: 'c',
+          },
+        },
+        {
+          id: 11297,
+          quantity: {
+            amount: 1,
+            unit: 'oz',
+          },
+        },
+      ];
 
-      //have the panty with ingredients
-      //create a list of ingredients1 that i know the pantry has
-      expect(mypantry.hasAllIngredients(ingredientList1)).to.equal(true);
+      expect(myPantry.hasAllIngredients(ingredientList1)).to.equal(true);
+    });
+
+    it('should tell me if it does not have the ingredients in a given list of ingredients', function () {
+      const ingredientList1 = [
+        {
+          id: 259,
+          quantity: {
+            amount: 1.5,
+            unit: 'c',
+          },
+        },
+        {
+          id: 11297,
+          quantity: {
+            amount: 1,
+            unit: 'oz',
+          },
+        },
+      ];
+
+      expect(myPantry.hasAllIngredients(ingredientList1)).to.equal(false);
+    });
+
+    it('should tell me if it does not have the right amount of ingredients in a given list of ingredients', function () {
+      const ingredientList1 = [
+        {
+          id: 11297,
+          quantity: {
+            amount: 1,
+            unit: 'oz',
+          },
+        },
+        {
+          id: 20081,
+          quantity: {
+            amount: 5,
+            unit: 'c',
+          },
+        },
+      ];
+
+      expect(myPantry.hasAllIngredients(ingredientList1)).to.equal(false);
     });
   });
 });
