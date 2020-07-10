@@ -12,12 +12,9 @@ describe('Pantry', function () {
   let pantry;
   let recipe;
   beforeEach(function() {
-<<<<<<< Updated upstream
     // user = new Pantry();
-=======
     pantry = new Pantry(usersData[0].pantry);
     recipe = new Recipe(recipeData[0]);
->>>>>>> Stashed changes
   });
 
   it('should be a function', function () {
