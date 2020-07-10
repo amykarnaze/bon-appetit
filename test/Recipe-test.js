@@ -6,50 +6,50 @@ const expect = chai.expect;
 var Recipe = require('../src/Recipe');
 
 describe('Recipe', function () {
-  let recipe;
-  beforeEach(function () {
-    var recipeData = {
-      id: 595736,
-      image: 'test-src',
-      ingredients: [
-        {
-          id: 20081,
-          quantity: {
-            amount: 1.5,
-            unit: 'c',
-          },
-        },
-        {
-          id: 18372,
-          quantity: {
-            amount: 0.5,
-            unit: 'tsp',
-          },
-        },
-      ],
-      instructions: [
-        {
-          instruction:
-            'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
-          number: 1,
-        },
-        {
-          instruction: 'Add egg and vanilla and mix until combined.',
-          number: 2,
-        },
-      ],
-      name: 'Loaded Chocolate Chip Pudding Cookie Cups',
-      tags: [
-        'antipasti',
-        'starter',
-        'snack',
-        'appetizer',
-        'antipasto',
-        "hor d'oeuvre",
-      ],
-    };
-    recipe = new Recipe(recipeData);
-  });
+    let recipe;
+    beforeEach(function () {
+        var recipeData = {
+            'id': 595736,
+            'image': 'test-src',
+            'ingredients': [
+                {
+                    'id': 20081,
+                    'quantity': {
+                        'amount': 1.5,
+                        'unit': 'c'
+                    }
+                },
+                {
+                    'id': 18372,
+                    'quantity': {
+                        'amount': 0.5,
+                        'unit': 'tsp'
+                    }
+                }
+            ],
+            'instructions': [
+                {
+                    'instruction': 'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
+                    'number': 1
+                },
+                {
+                    'instruction': 'Add egg and vanilla and mix until combined.',
+                    'number': 2
+                }
+            ],
+            'name': 'Loaded Chocolate Chip Pudding Cookie Cups',
+            'tags': [
+                'antipasti',
+                'starter',
+                'snack',
+                'appetizer',
+                'antipasto',
+                'hor d\'oeuvre'
+            ]
+        };
+
+        recipe = new Recipe(recipeData);
+    });
 
   it('should be a function', function () {
     expect(Recipe).to.be.a('function');
@@ -120,28 +120,49 @@ describe('Recipe', function () {
     expect(recipe.tags).to.deep.equal(expectedTags);
   });
 
-  describe('getIngredientCost', function () {
-    it('should get cost of all ingredients', function () {
-      const expectedCost = 142 * 1.5 + 582 * 0.5;
-      expect(recipe.getIngredientCost()).to.equal(expectedCost);
+    it('should have a default tag', function () {
+         var recipeData = {
+             'id': 595736,
+             'image': 'test-src',
+             'ingredients': [],
+             'instructions': [],
+             'name': 'Loaded Chocolate Chip Pudding Cookie Cups',
+         };
+         const recipeMissingTags = new Recipe(recipeData);
+         expect(recipeMissingTags.tags).to.deep.equal([]);
     });
-  });
 
-  describe('getInstructions', function () {
-    it('should be able to show instructions', () => {
-      expect(recipe.instructions).to.deep.equal([
-        {
-          instruction:
-            'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
-          number: 1,
-        },
-        {
-          instruction: 'Add egg and vanilla and mix until combined.',
-          number: 2,
-        },
-      ]);
+
+    describe('getIngredientCost', function () {
+        it('should get cost of all ingredients', function () {
+            const expectedCost = (142 * 1.5) + (582 * 0.5);
+            const missingIngredientList = recipe.ingredients;
+            expect(recipe.getIngredientCost(missingIngredientList)).to.equal(expectedCost);
+        });
+
+         it('should get cost of all ingredients with unknown ingredient id', function () {
+            recipe.ingredients[0].id = '99999';
+            const expectedCost = (582 * 0.5);
+            const missingIngredientList = recipe.ingredients;
+            expect(recipe.getIngredientCost(missingIngredientList)).to.equal(expectedCost);
+
+         });
     });
-  });
+
+    describe('getInstructions', function () {
+        it('should be able to show instructions', () => {
+            expect(recipe.instructions).to.deep.equal([
+                {
+                    'instruction': 'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
+                    'number': 1
+                },
+                {
+                    'instruction': 'Add egg and vanilla and mix until combined.',
+                    'number': 2
+                }
+            ]);
+        });
+    });
 
   describe.only('getIngredientsAsList', function () {
     it('should return a list of the ingredients', function () {
