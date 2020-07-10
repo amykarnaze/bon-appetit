@@ -96,9 +96,28 @@ main {
   overflow-y: scroll;
   height: 75vh;
 }
+.recipe-list li {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1vh;
+}
 
 .recipe-list img {
   height: 20vh;
+}
+
+.recipe-link {
+  align-self: center;
+  text-align: center;
+  max-width: 25em;
+}
+
+.favorite-button {
+  align-self: center;
+  height: 8vh;
+  width: 8vh;
+  font-size: larger;
+  margin-right: 0.3vw;
 }
 
 /* colors Pallete
