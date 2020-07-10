@@ -117,7 +117,34 @@ describe('Recipe', function () {
     describe('getIngredientCost', function () {
         it('should get cost of all ingredients', function () {
             const expectedCost = (142 * 1.5) + (582 * 0.5);
-            expect(recipe.getIngredientCost()).to.equal(expectedCost);
+            const missingIngredientList = recipe.ingredients;
+            expect(recipe.getIngredientCost(missingIngredientList)).to.equal(expectedCost);
         });
+<<<<<<< Updated upstream
+=======
+
+         it('should get cost of all ingredients with unknown ingredient id', function () {
+            recipe.ingredients[0].id = '99999';
+            const expectedCost = (582 * 0.5);
+            const missingIngredientList = recipe.ingredients;
+            expect(recipe.getIngredientCost(missingIngredientList)).to.equal(expectedCost);
+
+         });
+    });
+
+    describe('getInstructions', function () {
+        it('should be able to show instructions', () => {
+            expect(recipe.instructions).to.deep.equal([
+                {
+                    'instruction': 'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
+                    'number': 1
+                },
+                {
+                    'instruction': 'Add egg and vanilla and mix until combined.',
+                    'number': 2
+                }
+            ]);
+        });
+>>>>>>> Stashed changes
     });
     });
