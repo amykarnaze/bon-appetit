@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 class Pantry {
+
   constructor(userPantry) {
     this.userPantry = userPantry;
   }
@@ -39,12 +40,28 @@ class Pantry {
         //same form as recipe.ingredients
 // return the thing if it equates to soemthing truthy
 }
+  
+    hasAllIngredients(ingredientList) {
+    return ingredientList.every((ingredientFromList) => {
+      return (
+        this.findIngredient(ingredientFromList.id) &&
+        this.findIngredient(ingredientFromList.id).amount >=
+          ingredientFromList.quantity.amount
+      );
+    });
+  }
+
+  findIngredient(ingredientID) {
+    return this.userPantry.find((pantryIngredient) => {
+      return pantryIngredient.ingredient === ingredientID;
+    });
+  }
 }
 
 
 
 
 if (typeof module !== 'undefined') {
-    module.exports = Pantry;
+  module.exports = Pantry;
 }
 
