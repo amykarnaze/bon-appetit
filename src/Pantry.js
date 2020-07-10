@@ -11,10 +11,16 @@ class Pantry {
     // return true
     //otherwise false
     return ingredientList1.every((ingredientNeeded) => {
-      const foundIngredient = this.ingredients.find((pantryIngredient) => {
-        return pantryIngredient.ingredient === ingredientNeeded.id;
-      });
-      return foundIngredient.amount >= ingredientNeeded.quantity.amount;
+      return (
+        this.findIngredient(ingredientNeeded.id).amount >=
+        ingredientNeeded.quantity.amount
+      );
+    });
+  }
+
+  findIngredient(ingredientID) {
+    return this.ingredients.find((pantryIngredient) => {
+      return pantryIngredient.ingredient === ingredientID;
     });
   }
 }
