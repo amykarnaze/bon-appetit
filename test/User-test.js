@@ -4,6 +4,7 @@ const usersData = require('../data/users.js');
 const recipeData = require('../data/recipes.js');
 const User = require('../src/User');
 const Recipe = require('../src/Recipe');
+const Pantry = require('../src/Pantry');
 describe('User', function () {
   let user1;
   let user2;
@@ -40,9 +41,11 @@ describe('User', function () {
     expect(user1.name).to.equal("Saige O'Kon");
     expect(user2.name).to.equal('Ephraim Goyette');
   });
+  it('get saved recipes', function () {
+    user1.getSavedRecipes();
+  });
   it('should have a property of pantry', function () {
-    expect(user1.pantry).to.deep.equal(usersData[0].pantry);
-    expect(user2.pantry).to.deep.equal(usersData[1].pantry);
+    expect(user1.pantry).to.be.an.instanceOf(Pantry);
   });
   it('should have a list of favoriteRecipes', function () {
     expect(user1.favoriteRecipes).to.deep.equal([]);

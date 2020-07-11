@@ -1,4 +1,5 @@
 /* eslint-disable */
+const Pantry = require('../src/Pantry');
 
 const ingredientsData = require('../data/ingredients');
 
@@ -7,7 +8,7 @@ class User {
   constructor(name, id, pantry) {
     this.name = name;
     this.id = id;
-    this.pantry = pantry;
+    this.pantry = new Pantry(pantry);
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }
@@ -15,6 +16,10 @@ class User {
   addFavoriteRecipe(id) {
     if (!this.favoriteRecipes.includes(id)) {
       this.favoriteRecipes.push(id);
+      //instantiate recipes w passed in data?
+      // or 
+      // whatever is passed into it needs to be an instantiated recipe
+
     }
     // issue # 23
   }
@@ -37,7 +42,7 @@ class User {
     this.recipesToCook.splice(item, 1);
   }
   // #21
-
+  
   //search recipesToCook OR favoriteRecipes by type
   findRecipesByType(savedRecipes, tagName) {
     return savedRecipes.filter((recipe) => {
@@ -112,6 +117,18 @@ class User {
 // return a list of ingredients they need to buy and how much it will cost
 // (note - User should be able to do this for at least one recipe)
 // push into recipesToCook array
+
+
+// MAKE SINGLE SEARCH METHOD(uses a combination of )
+// findRecipeByName, findRecipeByType, findRecipeByIngredient
+// Needs to not have duplicates
+// if that is possible in the list
+// Used when user presses button after the search field is filled(make a check at some point that the field needs something)
+// That list needs to be sent to a display
+// function so the list changes
+// Make defaults
+// for all of the properties
+
 
 if (typeof module !== 'undefined') {
   module.exports = User;
