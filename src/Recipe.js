@@ -38,7 +38,7 @@ class Recipe {
     // console.log(this.instructions)
     return this.instructions;
   }
-  getIngredientsAsList() {
+  getIngredientsAsList(listOfIngredients) {
     /* 
     I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
     [
@@ -64,7 +64,7 @@ class Recipe {
       I can get this with the find prototype
       returning the name property of the first instance where the ids match
       */
-    return this.ingredients.map((recipeIngredient) => {
+    return listOfIngredients.map((recipeIngredient) => {
       const ingredientName = ingredientsData.find((ingredientFromKey) => {
         return ingredientFromKey.id === recipeIngredient.id;
       }).name;
