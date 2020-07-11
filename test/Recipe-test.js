@@ -7,6 +7,7 @@ var Recipe = require('../src/Recipe');
 
 describe('Recipe', function () {
   let recipe;
+  let recipeForSadPaths;
   beforeEach(function () {
     var recipeData = {
       id: 595736,
@@ -50,10 +51,10 @@ describe('Recipe', function () {
     };
 
     recipe = new Recipe(recipeData);
-    recipeForSadPaths = new Recipe();
+    recipeForSadPaths = new Recipe({});
   });
 
-  it.only('should be a function', function () {
+  it('should be a function', function () {
     expect(Recipe).to.be.a('function');
   });
 
@@ -158,22 +159,6 @@ describe('Recipe', function () {
       );
     });
   });
-
-  // describe('getInstructions', function () {
-  //   it('should be able to show instructions', () => {
-  //     expect(recipe.instructions).to.deep.equal([
-  //       {
-  //         instruction:
-  //           'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
-  //         number: 1,
-  //       },
-  //       {
-  //         instruction: 'Add egg and vanilla and mix until combined.',
-  //         number: 2,
-  //       },
-  //     ]);
-  //   });
-  // });
 
   describe('getInstructionsAsList', function () {
     it('should return an array of the instructions numbered', function () {

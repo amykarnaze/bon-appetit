@@ -4,7 +4,9 @@ const ingredientsData = require('../data/ingredients');
 class Recipe {
   constructor(recipeData) {
     this.id = recipeData.id;
-    this.image = recipeData.image;
+    this.image =
+      recipeData.image ||
+      'https://spoonacular.com/recipeImages/880108-556x370.jpg';
     this.ingredients = recipeData.ingredients;
     this.instructions = recipeData.instructions;
     this.name = recipeData.name;
