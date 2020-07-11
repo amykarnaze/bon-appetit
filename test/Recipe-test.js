@@ -179,7 +179,7 @@ describe('Recipe', function () {
 
   describe('getIngredientsAsList', function () {
     it('should return a list of the ingredients', function () {
-      expect(recipe.getIngredientsAsList()).to.deep.equal([
+      expect(recipe.getIngredientsAsList(recipe.ingredients)).to.deep.equal([
         '1.5c wheat flour',
         '0.5tsp bicarbonate of soda',
       ]);
