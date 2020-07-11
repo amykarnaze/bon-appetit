@@ -67,7 +67,7 @@ describe('Recipe', function () {
   });
 
   it('should have a default id of ', function () {
-    expect(recipeForSadPaths.id).to.equal(000000);
+    expect(recipeForSadPaths.id).to.equal(999999);
   });
 
   it('should have an image src', function () {
