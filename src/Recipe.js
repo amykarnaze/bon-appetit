@@ -36,7 +36,6 @@ getInstructions() {
     // console.log(this.instructions)
     return this.instructions
 }
-  
   getIngredientsAsList() {
     /* 
     I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
@@ -71,7 +70,31 @@ getInstructions() {
       return `${recipeIngredient.quantity.amount}${recipeIngredient.quantity.unit} ${ingredientName}`;
     });
   }
-};
+
+  getInstructionsAsList() {
+    /* 
+    I have an array of objects representing instructions with key value pairs of both instructions and the instruction number
+    [
+        {
+          instruction:
+            'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
+          number: 1,
+        },
+        {
+          instruction: 'Add egg and vanilla and mix until combined.',
+          number: 2,
+        },
+      ]
+      I want to return an array of strings with equal length to the recipe instructions
+      I could use map to build that new array
+      At each iteration I concat a string using the instruction and number properties of the current Object
+      */
+    return this.instructions.map((recipeInstruction) => {
+      return `Step ${recipeInstruction.number}: ${recipeInstruction.instruction}`;
+    });
+  }
+}
+
 
 if (typeof module !== 'undefined') {
   module.exports = Recipe;
