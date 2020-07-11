@@ -34,10 +34,6 @@ class Recipe {
     }, 0);
   }
 
-  getInstructions() {
-    // console.log(this.instructions)
-    return this.instructions;
-  }
   getIngredientsAsList(listOfIngredients) {
     /* 
     I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
