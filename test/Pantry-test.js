@@ -11,7 +11,7 @@ const recipeData = require('../data/recipes.js');
 describe('Pantry', function () {
   let pantry;
   let recipe;
-  beforeEach(function() {
+  beforeEach(function () {
     // user = new Pantry();
     pantry = new Pantry(usersData[0].pantry);
     recipe = new Recipe(recipeData[0]);
@@ -25,11 +25,10 @@ describe('Pantry', function () {
     expect(pantry).to.be.an.instanceof(Pantry);
   });
 
-
-it('should have a property of userPantry', function() {
+  it('should have a property of userPantry', function () {
     expect(pantry.userPantry).to.deep.equal(usersData[0].pantry);
   });
-  describe.only('hasAllIngredients', function () {
+  describe('hasAllIngredients', function () {
     let myPantry;
     beforeEach(function () {
       myPantry = new Pantry([
@@ -106,22 +105,25 @@ it('should have a property of userPantry', function() {
       expect(myPantry.hasAllIngredients(ingredientList1)).to.equal(false);
     });
   });
-  
+
   describe('findMissingIngredients', function () {
     it('should find missing ingredients', () => {
-    // pantry.findMissingIngredients(recipe);
-    const missingIngredients = [{
-      "id": "1",
-      "quantity": {
-        "amount": 1.5,
-        "unit": "c"
-      }
-    }];
-    recipe.ingredients = missingIngredients;
-      expect(pantry.findMissingIngredients(recipe)).to.deep.equal(missingIngredients);
-  })
+      // pantry.findMissingIngredients(recipe);
+      const missingIngredients = [
+        {
+          id: '1',
+          quantity: {
+            amount: 1.5,
+            unit: 'c',
+          },
+        },
+      ];
+      recipe.ingredients = missingIngredients;
+      expect(pantry.findMissingIngredients(recipe)).to.deep.equal(
+        missingIngredients
+      );
+    });
 
-  // todo write happy path for when ingredients are found
-  })
+    // todo write happy path for when ingredients are found
+  });
 });
-
