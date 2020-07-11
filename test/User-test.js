@@ -41,9 +41,6 @@ describe('User', function () {
     expect(user1.name).to.equal("Saige O'Kon");
     expect(user2.name).to.equal('Ephraim Goyette');
   });
-  it('get saved recipes', function () {
-    user1.getSavedRecipes();
-  });
   it('should have a property of pantry', function () {
     expect(user1.pantry).to.be.an.instanceOf(Pantry);
   });
@@ -62,8 +59,10 @@ describe('User', function () {
     });
   });
   describe('removeFavoriteRecipe', function () {
-    it('should be able to remove a favorite recipe', () => {
-      user1.removeFavoriteRecipe(595736);
+    it.only('should be able to remove a favorite recipe', () => {
+      user1.addFavoriteRecipe(recipe1);
+      expect(user1.favoriteRecipes).to.deep.equal([recipe1]);
+      user1.removeFavoriteRecipe(recipe1);
       expect(user1.favoriteRecipes).to.deep.equal([]);
     });
   });
@@ -79,6 +78,14 @@ describe('User', function () {
       expect(user1.recipesToCook).to.deep.equal([]);
     });
   });
+
+  describe('getSavedRecipes', function () {
+  it('get saved recipes', function () {
+    user1.addFavoriteRecipe()
+    user1.getSavedRecipes();
+    });
+  });
+
   describe('findRecipesByType', function () {
     it('should be able to find a recipe by type', () => {
       let mockRecipes = [

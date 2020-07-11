@@ -24,9 +24,13 @@ class User {
     // issue # 23
   }
 
-  removeFavoriteRecipe(id) {
-    let item = this.favoriteRecipes.indexOf(id);
-    this.favoriteRecipes.splice(item, 1);
+  removeFavoriteRecipe(recipeToRemove) {
+    // let item = this.favoriteRecipes.indexOf(recipe.id);
+    const targetIndex = this.favoriteRecipes.findIndex(recipe => {
+      return recipe.id === recipeToRemove.id;
+      // find index of recipe where ids match
+    })
+    this.favoriteRecipes.splice(targetIndex, 1);
     // #19
   }
 
@@ -42,7 +46,12 @@ class User {
     this.recipesToCook.splice(item, 1);
   }
   // #21
-  
+  getSavedRecipes() {
+    // how to get unique values from an array
+    const savedRecipesWithDuplicates = this.favoriteRecipes.concat(this.recipesToCook);
+    console.log('recipes', savedRecipesWithDuplicates)
+    console.log(new Set(savedRecipesWithDuplicates));
+  }
   //search recipesToCook OR favoriteRecipes by type
   findRecipesByType(savedRecipes, tagName) {
     return savedRecipes.filter((recipe) => {
