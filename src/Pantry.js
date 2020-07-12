@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 class Pantry {
-  constructor(userPantry) {
+  constructor(userPantry = []) {
     this.userPantry = userPantry;
   }
 

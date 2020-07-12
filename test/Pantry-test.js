@@ -16,7 +16,7 @@ describe('Pantry', function () {
     // user = new Pantry();
     pantry = new Pantry(usersData[0].pantry);
     recipe = new Recipe(recipeData[0]);
-    recipeForSadPaths = new Recipe();
+    pantryForSadPaths = new Pantry();
   });
 
   it('should be a function', function () {
@@ -32,7 +32,7 @@ describe('Pantry', function () {
   });
 
   it('should have and empty pantry as a default', function () {
-    expect(pantryForSadPaths.userPantry).to.equal([]);
+    expect(pantryForSadPaths.userPantry).to.deep.equal([]);
   });
 
   describe('hasAllIngredients', function () {
