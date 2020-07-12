@@ -13,15 +13,18 @@ class User {
     this.recipesToCook = [];
   }
 
-  addFavoriteRecipe(id) {
-    if (!this.favoriteRecipes.includes(id)) {
-      this.favoriteRecipes.push(id);
-      //instantiate recipes w passed in data?
-      // or 
-      // whatever is passed into it needs to be an instantiated recipe
-
+  addFavoriteRecipe(recipeToAdd) {
+    const recipeExists = this.findRecipe(this.favoriteRecipes, recipeToAdd);
+    if (!recipeExists) {
+      this.favoriteRecipes.push(recipeToAdd);
     }
-    // issue # 23
+  }
+
+  addRecipesToCook(recipeToAdd) {
+    const recipeExists = this.findRecipe(this.recipesToCook, recipeToAdd);
+    if (!recipeExists) {
+      this.recipesToCook.push(recipeToAdd);
+    }
   }
 
   removeFavoriteRecipe(recipeToRemove) {
@@ -63,14 +66,14 @@ class User {
     return Array.from(uniqueRecipes);
   }
   //search recipesToCook OR favoriteRecipes by type
-  findRecipesByType(savedRecipes, tagName) {
-    return savedRecipes.filter((recipe) => {
+  findRecipesByType(tagName) {
+    return this.getSavedRecipes().filter((recipe) => {
       return recipe.tags.includes(tagName);
     });
   }
 
-  findRecipesByName(savedRecipes, name) {
-    return savedRecipes.filter((recipe) => {
+  findRecipesByName(name) {
+    return this.getSavedRecipes().filter((recipe) => {
       return recipe.name.includes(name);
     });
   }
@@ -96,14 +99,14 @@ class User {
   //     // search savedRecipes for ingredients id
   //     }
   //     }
-  findRecipesByIngredient(savedRecipes, ingredientName) {
+  findRecipesByIngredient(ingredientName) {
     let ingredientId;
     ingredientsData.forEach((ingredient) => {
       if (ingredientName.includes(ingredient.name)) {
         ingredientId = ingredient.id;
       }
     });
-    const matchedRecipes = savedRecipes.reduce((acc, recipe) => {
+    const matchedRecipes = this.getSavedRecipes().reduce((acc, recipe) => {
       recipe.ingredients.forEach((currentIngredient) => {
         if (currentIngredient.id === ingredientId) {
           acc.push(recipe);
