@@ -41,9 +41,11 @@ class User {
     //#20
   }
 
-  removeRecipesToCook(id) {
-    let item = this.recipesToCook.indexOf(id);
-    this.recipesToCook.splice(item, 1);
+  removeRecipesToCook(recipeToRemove) {
+    const targetIndex = this.recipesToCook.findIndex(recipe => {
+      return recipe.id === recipeToRemove.id;
+    });
+    this.recipesToCook.splice(targetIndex, 1);
   }
   // #21
   getSavedRecipes() {

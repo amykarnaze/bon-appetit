@@ -59,7 +59,7 @@ describe('User', function () {
     });
   });
   describe('removeFavoriteRecipe', function () {
-    it.only('should be able to remove a favorite recipe', () => {
+    it('should be able to remove a favorite recipe', () => {
       user1.addFavoriteRecipe(recipe1);
       expect(user1.favoriteRecipes).to.deep.equal([recipe1]);
       user1.removeFavoriteRecipe(recipe1);
@@ -74,8 +74,10 @@ describe('User', function () {
   });
   describe('removeRecipesToCook', function () {
     it('should be able to remove a recipe from recipesToCook', () => {
-      user1.removeRecipesToCook(595736);
-      expect(user1.recipesToCook).to.deep.equal([]);
+      user1.addRecipesToCook(recipe1);
+      expect(user1.recipesToCook).to.deep.equal([recipe1]);
+      user1.removeRecipesToCook(recipe1);
+      expect(user1.recipesToCook).to.deep.equal([])
     });
   });
 
