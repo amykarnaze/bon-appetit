@@ -1,14 +1,9 @@
-// const usersData = require('../data/users.js');
-// const ingredientsData = require('../data/ingredients');
-
-// const usersData = require('../data/users');
-
-// const recipesData = require('../data/recipes');
 window.onload = setup();
 
 function setup() {
   console.log('I got here');
   populateUserSelector();
+  displayRecipeList(recipesData);
 }
 
 function populateUserSelector() {
@@ -22,3 +17,5 @@ function populateUserSelector() {
   });
   userSelector.innerHTML = userSelectorInnerHTML;
 }
+
+function displayRecipeList(recipes) {}
