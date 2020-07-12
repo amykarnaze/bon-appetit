@@ -7,6 +7,7 @@ var Recipe = require('../src/Recipe');
 
 describe('Recipe', function () {
   let recipe;
+  let recipeForSadPaths;
   beforeEach(function () {
     var recipeData = {
       id: 595736,
@@ -50,6 +51,7 @@ describe('Recipe', function () {
     };
 
     recipe = new Recipe(recipeData);
+    recipeForSadPaths = new Recipe({});
   });
 
   it('should be a function', function () {
@@ -64,8 +66,18 @@ describe('Recipe', function () {
     expect(recipe.id).to.equal(595736);
   });
 
+  it('should have a default id of ', function () {
+    expect(recipeForSadPaths.id).to.equal(999999);
+  });
+
   it('should have an image src', function () {
     expect(recipe.image).to.deep.equal('test-src');
+  });
+
+  it('should have a default image', function () {
+    expect(recipeForSadPaths.image).to.equal(
+      'https://spoonacular.com/recipeImages/880108-556x370.jpg'
+    );
   });
 
   it('should have ingredients', function () {
@@ -88,6 +100,10 @@ describe('Recipe', function () {
     expect(recipe.ingredients).to.deep.equal(expectedIngredients);
   });
 
+  it('should have no ingredients as default', function () {
+    expect(recipeForSadPaths.ingredients).to.deep.equal([]);
+  });
+
   it('should have instructions', function () {
     var expectedInstructions = [
       {
@@ -103,10 +119,18 @@ describe('Recipe', function () {
     expect(recipe.instructions).to.deep.equal(expectedInstructions);
   });
 
+  it('should have no instructions default', function () {
+    expect(recipeForSadPaths.instructions).to.deep.equal([]);
+  });
+
   it('should have a name', function () {
     expect(recipe.name).to.deep.equal(
       'Loaded Chocolate Chip Pudding Cookie Cups'
     );
+  });
+
+  it('should have a default name of Empty Recipe', function () {
+    expect(recipeForSadPaths.name).to.equal('Empty Recipe');
   });
 
   it('should have a default tag', function () {
@@ -152,22 +176,6 @@ describe('Recipe', function () {
     });
   });
 
-  describe('getInstructions', function () {
-    it('should be able to show instructions', () => {
-      expect(recipe.instructions).to.deep.equal([
-        {
-          instruction:
-            'In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.',
-          number: 1,
-        },
-        {
-          instruction: 'Add egg and vanilla and mix until combined.',
-          number: 2,
-        },
-      ]);
-    });
-  });
-
   describe('getInstructionsAsList', function () {
     it('should return an array of the instructions numbered', function () {
       expect(recipe.getInstructionsAsList()).to.deep.equal([
@@ -179,7 +187,7 @@ describe('Recipe', function () {
 
   describe('getIngredientsAsList', function () {
     it('should return a list of the ingredients', function () {
-      expect(recipe.getIngredientsAsList()).to.deep.equal([
+      expect(recipe.getIngredientsAsList(recipe.ingredients)).to.deep.equal([
         '1.5c wheat flour',
         '0.5tsp bicarbonate of soda',
       ]);

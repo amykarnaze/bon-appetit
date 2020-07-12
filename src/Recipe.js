@@ -3,11 +3,13 @@ const ingredientsData = require('../data/ingredients');
 
 class Recipe {
   constructor(recipeData) {
-    this.id = recipeData.id;
-    this.image = recipeData.image;
-    this.ingredients = recipeData.ingredients;
-    this.instructions = recipeData.instructions;
-    this.name = recipeData.name;
+    this.id = recipeData.id || 999999;
+    this.image =
+      recipeData.image ||
+      'https://spoonacular.com/recipeImages/880108-556x370.jpg';
+    this.ingredients = recipeData.ingredients || [];
+    this.instructions = recipeData.instructions || [];
+    this.name = recipeData.name || 'Empty Recipe';
     this.tags = recipeData.tags || [];
   }
 
@@ -34,11 +36,7 @@ class Recipe {
     }, 0);
   }
 
-  getInstructions() {
-    // console.log(this.instructions)
-    return this.instructions;
-  }
-  getIngredientsAsList() {
+  getIngredientsAsList(listOfIngredients) {
     /* 
     I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
     [
@@ -64,7 +62,7 @@ class Recipe {
       I can get this with the find prototype
       returning the name property of the first instance where the ids match
       */
-    return this.ingredients.map((recipeIngredient) => {
+    return listOfIngredients.map((recipeIngredient) => {
       const ingredientName = ingredientsData.find((ingredientFromKey) => {
         return ingredientFromKey.id === recipeIngredient.id;
       }).name;
