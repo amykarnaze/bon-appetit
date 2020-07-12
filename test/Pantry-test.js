@@ -11,10 +11,12 @@ const recipeData = require('../data/recipes.js');
 describe('Pantry', function () {
   let pantry;
   let recipe;
+  let pantryForSadPaths;
   beforeEach(function () {
     // user = new Pantry();
     pantry = new Pantry(usersData[0].pantry);
     recipe = new Recipe(recipeData[0]);
+    recipeForSadPaths = new Recipe();
   });
 
   it('should be a function', function () {
@@ -28,6 +30,11 @@ describe('Pantry', function () {
   it('should have a property of userPantry', function () {
     expect(pantry.userPantry).to.deep.equal(usersData[0].pantry);
   });
+
+  it('should have and empty pantry as a default', function () {
+    expect(pantryForSadPaths.userPantry).to.equal([]);
+  });
+
   describe('hasAllIngredients', function () {
     let myPantry;
     beforeEach(function () {
