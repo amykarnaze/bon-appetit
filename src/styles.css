@@ -172,6 +172,7 @@ main {
 .one-recipe-instructions {
   grid-area: ins;
   margin: 0.5vw;
+  overflow-y: scroll;
 }
 
 .cook-it {
