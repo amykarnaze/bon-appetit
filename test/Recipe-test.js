@@ -129,6 +129,10 @@ describe('Recipe', function () {
     );
   });
 
+  it('should have a default name of Empty Recipe', function () {
+    expect(recipeForSadPaths.name).to.equal('Empty Recipe');
+  });
+
   it('should have a default tag', function () {
     var recipeData = {
       id: 595736,
