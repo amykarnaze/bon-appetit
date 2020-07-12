@@ -79,6 +79,13 @@ describe('User', function () {
       expect(user1.findRecipe(recipes, recipe2), recipe2);
     });
   });
+
+  describe('findIndx', function () {
+    it('should be able to find a recipe index', function () {
+      const recipes = [recipe1, recipe2];
+      expect(user1.findRecipeIndex(recipes, recipe2), 1);
+    });
+  });
   describe('removeRecipesToCook', function () {
     it('should be able to remove a recipe from recipesToCook', () => {
       user1.addRecipesToCook(recipe1);

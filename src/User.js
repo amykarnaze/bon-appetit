@@ -26,10 +26,7 @@ class User {
 
   removeFavoriteRecipe(recipeToRemove) {
     // let item = this.favoriteRecipes.indexOf(recipe.id);
-    const targetIndex = this.favoriteRecipes.findIndex(recipe => {
-      return recipe.id === recipeToRemove.id;
-      // find index of recipe where ids match
-    })
+    const targetIndex = this.findRecipeIndex(this.favoriteRecipes, recipeToRemove);    
     this.favoriteRecipes.splice(targetIndex, 1);
     // #19
   }
@@ -47,10 +44,14 @@ class User {
     });
   }
 
-  removeRecipesToCook(recipeToRemove) {
-    const targetIndex = this.recipesToCook.findIndex(recipe => {
-      return recipe.id === recipeToRemove.id;
+  findRecipeIndex(recipes, recipeToFind) {
+    return recipes.findIndex(recipe => {
+      return recipe.id === recipeToFind.id;
     });
+  }
+
+  removeRecipesToCook(recipeToRemove) {
+    const targetIndex = this.findRecipeIndex(this.recipesToCook, recipeToRemove);
     this.recipesToCook.splice(targetIndex, 1);
   }
   // #21
