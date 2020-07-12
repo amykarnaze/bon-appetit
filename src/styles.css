@@ -153,10 +153,24 @@ main {
   height: 17vh;
   border-radius: 13%;
   border: 3px solid #a9b661;
+  grid-area: img;
+  margin: 0.5vw;
 }
 
 .one-recipe-title {
   font-size: large;
+  grid-area: title;
+  margin: 0.5vw;
+}
+
+.one-recipe-ingredients {
+  grid-area: ing;
+  margin: 0.5vw;
+}
+
+.one-recipe-instructions {
+  grid-area: ins;
+  margin: 0.5vw;
 }
 /* colors Pallete
 606c38 - medium green
