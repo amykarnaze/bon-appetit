@@ -118,6 +118,8 @@ main {
   width: 8vh;
   font-size: larger;
   margin-right: 0.3vw;
+  border-radius: 50%;
+  outline: none;
 }
 
 /* colors Pallete
