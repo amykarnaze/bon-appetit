@@ -4,6 +4,10 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body {
+  background-color: #bc6c25;
+}
+
 header {
   width: 100%;
   height: 18vh;
@@ -46,11 +50,14 @@ header {
   margin-bottom: 2vh;
   margin-right: 2vh;
   font-size: 1.3em;
+  padding: 0 1em;
+  border-radius: 1em;
+  outline: none;
 }
 
 main {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 63% 37%;
 }
 
 .recipe-display-section {
@@ -58,7 +65,8 @@ main {
   background-color: #a9b661;
   color: #283618;
   font-weight: bold;
-  height: 80vh;
+  height: 78vh;
+  border-radius: 0 2% 2% 0;
 }
 
 .search-bar {
@@ -94,7 +102,7 @@ main {
   list-style-type: none;
   padding-left: 2vw;
   overflow-y: scroll;
-  height: 75vh;
+  height: 72vh;
 }
 .recipe-list li {
   display: flex;
@@ -104,6 +112,8 @@ main {
 
 .recipe-list img {
   height: 20vh;
+  border-radius: 13%;
+  border: 3px solid #dda15e;
 }
 
 .recipe-link {
@@ -118,8 +128,73 @@ main {
   width: 8vh;
   font-size: larger;
   margin-right: 0.3vw;
+  border-radius: 50%;
+  outline: none;
 }
 
+.one-recipe-display-section {
+  background-color: #fefae0;
+  height: 78vh;
+  padding: 1vw;
+  border-left: 3px solid #dda15e;
+  border-radius: 2% 0 0 2%;
+  box-shadow: -12px 0 12px 1px #283618;
+  font-size: smaller;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-auto-rows: minmax(9vh, auto);
+  /* margin: 0 auto; */
+  grid-template-areas:
+    'img title'
+    'img ing'
+    'btn ing'
+    'ins ins'
+    'ins ins';
+}
+
+.one-recipe-display-section img {
+  height: 17vh;
+  border-radius: 13%;
+  border: 3px solid #a9b661;
+  grid-area: img;
+  margin: 0.5vw;
+  align-self: center;
+}
+
+.one-recipe-title {
+  font-size: large;
+  grid-area: title;
+  margin: 0.5vw;
+  text-align: right;
+  padding-right: 1vw;
+}
+
+.one-recipe-ingredients {
+  grid-area: ing;
+  margin: 0.5vw;
+  text-align: right;
+  padding-right: 3vw;
+}
+
+.one-recipe-instructions {
+  grid-area: ins;
+  margin: 0.5vw;
+  overflow-y: scroll;
+}
+
+.cook-it {
+  grid-area: btn;
+  align-self: top;
+  justify-self: center;
+  padding: 0 3em;
+  border-radius: 3em;
+  height: 6vh;
+  width: 14vw;
+  outline: none;
+  font-size: 1.2em;
+  color: #283618;
+  background-color: #dda15e;
+}
 /* colors Pallete
 606c38 - medium green
 283618 - dark green
