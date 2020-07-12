@@ -176,10 +176,16 @@ main {
 
 .cook-it {
   grid-area: btn;
+  align-self: top;
+  justify-self: center;
   padding: 0 3em;
   border-radius: 3em;
   height: 6vh;
   width: 14vw;
+  outline: none;
+  font-size: 1.2em;
+  color: #283618;
+  background-color: #dda15e;
 }
 /* colors Pallete
 606c38 - medium green
