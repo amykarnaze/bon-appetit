@@ -35,3 +35,10 @@ function displayRecipeList(recipes) {
   });
   recipeListSection.innerHTML = recipeListInnerHTML;
 }
+
+function displayOneRecipe(recipe) {
+  const oneRecipeSection = document.querySelector(
+    '.one-recipe-display-section'
+  );
+  let oneRecipeInnerHtml = '';
+}
