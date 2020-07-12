@@ -40,5 +40,20 @@ function displayOneRecipe(recipe) {
   const oneRecipeSection = document.querySelector(
     '.one-recipe-display-section'
   );
-  let oneRecipeInnerHtml = '';
+  let oneRecipeInnerHtml = `<section class="one-recipe-display-section">
+        <img
+          src="${recipe.image}"
+          alt="${recipe.name}"
+        />
+        <h2 class="one-recipe-title">
+          ${recipe.name}
+        </h2>
+        <article class="one-recipe-ingredients">
+          ingredients
+        </article>
+        <button class="cook-it">Cook It!</button>
+        <article class="one-recipe-instructions">
+          instructions
+        </article>
+      </section>`;
 }
