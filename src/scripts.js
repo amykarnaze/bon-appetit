@@ -49,11 +49,12 @@ function displayOneRecipe(recipe) {
           ${recipe.name}
         </h2>
         <article class="one-recipe-ingredients">
-          ingredients
+          ${recipeIngredientsFormater(recipe)}
         </article>
         <button class="cook-it">Cook It!</button>
         <article class="one-recipe-instructions">
-          instructions
+          ${recipeInstructionsFormater(recipe)}
         </article>
       </section>`;
+  oneRecipeSection.innerHTML = oneRecipeInnerHtml;
 }
