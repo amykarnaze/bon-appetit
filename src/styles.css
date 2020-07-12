@@ -104,6 +104,8 @@ main {
 
 .recipe-list img {
   height: 20vh;
+  border-radius: 13%;
+  border: 3px solid #dda15e;
 }
 
 .recipe-link {
@@ -129,8 +131,9 @@ main {
 
 .one-recipe-display-section img {
   height: 17vh;
-  padding: 1vh;
-  border-radius: 10%;
+  margin: 1vh;
+  border-radius: 13%;
+  border: 3px solid #a9b661;
 }
 /* colors Pallete
 606c38 - medium green
