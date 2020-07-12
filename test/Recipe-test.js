@@ -119,6 +119,10 @@ describe('Recipe', function () {
     expect(recipe.instructions).to.deep.equal(expectedInstructions);
   });
 
+  it('should have no instructions default', function () {
+    expect(recipeForSadPaths.instructions).to.deep.equal([]);
+  });
+
   it('should have a name', function () {
     expect(recipe.name).to.deep.equal(
       'Loaded Chocolate Chip Pudding Cookie Cups'
