@@ -23,7 +23,7 @@ describe('User', function () {
       tags: recipeData[0].tags,
     });
     // // recipe1 = new Recipe(usersRecipes.recipeData[0].id, recipeData[0].image, recipeData[0].ingredients, recipeData[0].instructions, recipeData[0].name, recipeData[0].tags);
-    // recipe2 = new Recipe(recipeData[1].id, recipeData[1].image, recipeData[1].ingredients, recipeData[1].instructions, recipeData[1].name, recipeData[1].tags);
+    recipe2 = new Recipe(recipeData[1].id, recipeData[1].image, recipeData[1].ingredients, recipeData[1].instructions, recipeData[1].name, recipeData[1].tags);
     // recipe1 = new Recipe(recipeData);
   });
   it('should be a function', function () {
@@ -70,6 +70,13 @@ describe('User', function () {
     it('should be able to add a recipe to recipesToCook', () => {
       user1.addRecipesToCook(595736);
       expect(user1.recipesToCook).to.deep.equal([595736]);
+    });
+  });
+
+  describe('findRecipe', function () {
+    it('should be able to find a recipe', function () {
+      const recipes = [recipe1, recipe2];
+      expect(user1.findRecipe(recipes, recipe2), recipe2);
     });
   });
   describe('removeRecipesToCook', function () {

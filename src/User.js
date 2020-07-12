@@ -34,11 +34,17 @@ class User {
     // #19
   }
 
-  addRecipesToCook(id) {
-    if (!this.recipesToCook.includes(id)) {
-      this.recipesToCook.push(id);
+  addRecipesToCook(recipeToAdd) {
+    const recipeExists = this.findRecipe(this.recipesToCook, recipeToAdd);
+    if (!recipeExists) {
+      this.recipesToCook.push(recipeToAdd);
     }
-    //#20
+  }
+
+  findRecipe(recipes, recipeToFind) {
+    return recipes.find(recipe => {
+      return recipe.id === recipeToFind.id;
+    });
   }
 
   removeRecipesToCook(recipeToRemove) {
