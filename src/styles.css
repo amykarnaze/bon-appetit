@@ -137,6 +137,16 @@ main {
   border-radius: 2% 0 0 2%;
   box-shadow: -12px 0 12px 1px #283618;
   font-size: smaller;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-auto-rows: minmax(9vh, auto);
+  /* margin: 0 auto; */
+  grid-template-areas:
+    'img title'
+    'img ing'
+    'btn ing'
+    'ins ins'
+    'ins ins';
 }
 
 .one-recipe-display-section img {
