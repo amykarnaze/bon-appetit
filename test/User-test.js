@@ -44,6 +44,11 @@ describe('User', function () {
     expect(user2.name).to.equal('Ephraim Goyette');
   });
 
+  it('should have a default name if User has no name', () => {
+    const hannah = new User();
+    expect(hannah.name).to.be.equal('friend');
+  });
+
   it('should have a property of pantry', function () {
     expect(user1.pantry).to.be.an.instanceOf(Pantry);
   });

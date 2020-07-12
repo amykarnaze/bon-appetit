@@ -4,7 +4,7 @@ const ingredientsData = require('../data/ingredients');
 const userData = require('../data/users.js');
 class User {
   constructor(name, id, pantry) {
-    this.name = name;
+    this.name = name || 'friend';
     this.id = id || Math.ceil(Date.now());
     this.pantry = new Pantry(pantry);
     this.favoriteRecipes = [];
