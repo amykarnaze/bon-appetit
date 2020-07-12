@@ -1,14 +1,9 @@
-// const usersData = require('../data/users.js');
-// const ingredientsData = require('../data/ingredients');
-
-// const usersData = require('../data/users');
-
-// const recipesData = require('../data/recipes');
 window.onload = setup();
 
 function setup() {
   console.log('I got here');
   populateUserSelector();
+  displayRecipeList(recipeData);
 }
 
 function populateUserSelector() {
@@ -21,4 +16,22 @@ function populateUserSelector() {
       `;
   });
   userSelector.innerHTML = userSelectorInnerHTML;
+}
+
+function displayRecipeList(recipes) {
+  const recipeListSection = document.querySelector('.recipe-list');
+  let recipeListInnerHTML = '';
+  recipes.forEach((recipe) => {
+    recipeListInnerHTML += `<li class="${recipe.id}">
+            <img
+              src="${recipe.image}"
+              alt="Photo of ${recipe.name}"
+            />
+            <span class="recipe-link">${recipe.name}</span>
+            <button class="favorite-button" alt="Add to Favorites">
+              &#11088;
+            </button>
+          </li>`;
+  });
+  recipeListSection.innerHTML = recipeListInnerHTML;
 }
