@@ -58,8 +58,9 @@ class User {
   getSavedRecipes() {
     // how to get unique values from an array
     const savedRecipesWithDuplicates = this.favoriteRecipes.concat(this.recipesToCook);
-    console.log('recipes', savedRecipesWithDuplicates)
-    console.log(new Set(savedRecipesWithDuplicates));
+    const uniqueRecipes = new Set(savedRecipesWithDuplicates);
+    //need to get array from set
+    return Array.from(uniqueRecipes);
   }
   //search recipesToCook OR favoriteRecipes by type
   findRecipesByType(savedRecipes, tagName) {

@@ -86,6 +86,7 @@ describe('User', function () {
       expect(user1.findRecipeIndex(recipes, recipe2), 1);
     });
   });
+
   describe('removeRecipesToCook', function () {
     it('should be able to remove a recipe from recipesToCook', () => {
       user1.addRecipesToCook(recipe1);
@@ -96,9 +97,10 @@ describe('User', function () {
   });
 
   describe('getSavedRecipes', function () {
-  it('get saved recipes', function () {
-    user1.addFavoriteRecipe()
-    user1.getSavedRecipes();
+    it('get saved recipes', function () {
+      user1.addFavoriteRecipe(recipe1);
+      user1.addRecipesToCook(recipe1);
+      expect(user1.getSavedRecipes()).to.deep.equal([recipe1]);
     });
   });
 
