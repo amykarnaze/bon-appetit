@@ -122,6 +122,10 @@ main {
   outline: none;
 }
 
+.one-recipe-display-section {
+  background-color: #fefae0;
+}
+
 /* colors Pallete
 606c38 - medium green
 283618 - dark green
