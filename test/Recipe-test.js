@@ -100,6 +100,10 @@ describe('Recipe', function () {
     expect(recipe.ingredients).to.deep.equal(expectedIngredients);
   });
 
+  it('should have no ingredients as default', function () {
+    expect(recipeForSadPaths.ingredients).to.deep.equal([]);
+  });
+
   it('should have instructions', function () {
     var expectedInstructions = [
       {
