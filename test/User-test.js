@@ -6,10 +6,10 @@ const User = require('../src/User');
 const Recipe = require('../src/Recipe');
 const Pantry = require('../src/Pantry');
 describe('User', function () {
-  let user1;
-  let user2;
+  let user1, user2, userBear;
   let recipe1, recipe2, recipe3, recipe4;
   beforeEach(function () {
+   
     user1 = new User(usersData[0].name, usersData[0].id, usersData[0].pantry);
     user2 = new User(usersData[1].name, usersData[1].id, usersData[1].pantry);
     recipe1 = new Recipe(recipeData[0]);
@@ -17,6 +17,7 @@ describe('User', function () {
     recipe3 = new Recipe(recipeData[3]);
     recipe4 = new Recipe(recipeData[5]);
   });
+
   it('should be a function', function () {
     expect(User).to.be.a('function');
   });
@@ -31,9 +32,21 @@ describe('User', function () {
     expect(user2.id).to.equal(2);
   });
 
+  it('should have an id if there is none', function () {
+    let userNoId = new User ({
+        name: "Name",
+    });
+    expect(userNoId.id).to.equal(Math.ceil(Date.now()));
+  });
+
   it('should have a property of name', () => {
     expect(user1.name).to.equal("Saige O'Kon");
     expect(user2.name).to.equal('Ephraim Goyette');
+  });
+
+  it('should have a default name if User has no name', () => {
+    const hannah = new User();
+    expect(hannah.name).to.be.equal('friend');
   });
 
   it('should have a property of pantry', function () {

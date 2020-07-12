@@ -1,13 +1,11 @@
 /* eslint-disable */
 const Pantry = require('../src/Pantry');
-
 const ingredientsData = require('../data/ingredients');
-
 const userData = require('../data/users.js');
 class User {
   constructor(name, id, pantry) {
-    this.name = name;
-    this.id = id;
+    this.name = name || 'friend';
+    this.id = id || Math.ceil(Date.now());
     this.pantry = new Pantry(pantry);
     this.favoriteRecipes = [];
     this.recipesToCook = [];
@@ -57,7 +55,7 @@ class User {
     const targetIndex = this.findRecipeIndex(this.recipesToCook, recipeToRemove);
     this.recipesToCook.splice(targetIndex, 1);
   }
-  // #21
+
   getSavedRecipes() {
     // how to get unique values from an array
     const savedRecipesWithDuplicates = this.favoriteRecipes.concat(this.recipesToCook);
