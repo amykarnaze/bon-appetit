@@ -127,11 +127,12 @@ main {
 .one-recipe-display-section {
   background-color: #fefae0;
   height: 80vh;
+  padding: 1vw;
+  border-left: 3px solid #dda15e;
 }
 
 .one-recipe-display-section img {
   height: 17vh;
-  margin: 1vh;
   border-radius: 13%;
   border: 3px solid #a9b661;
 }
