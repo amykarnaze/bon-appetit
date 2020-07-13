@@ -1,11 +1,37 @@
-var displayedRecipe = new Recipe(recipeData[0]);
+const User = require('./User');
+
+var currentInformation = {};
+
+/*
+{currentUser= ...,
+displayedRecipe ===
+allRecipes ===}
+*/
 window.onload = setup();
 
 function setup() {
   console.log('I got here');
   populateUserSelector();
+  instatiateCurrentInfo();
   displayRecipeList(recipeData);
   displayOneRecipe(displayedRecipe);
+}
+
+function instatiateCurrentInfo() {
+  changeCurrentUser(1);
+  changeDisplayedRecipe(recipeData[0]);
+  instatiateRecipeData();
+}
+
+function changeCurrentUser(id) {
+  const userBasedOnID = usersDate.find((user) => {
+    user.id === id;
+  });
+  currentInformation.currentUser = new User(
+    userBasedOnID.name,
+    userBasedOnID.id,
+    userBasedOnID.pantry
+  );
 }
 
 function populateUserSelector() {
