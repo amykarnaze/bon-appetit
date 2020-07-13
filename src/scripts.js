@@ -1,11 +1,40 @@
-var displayedRecipe = new Recipe(recipeData[0]);
+var currentInformation = {};
+
 window.onload = setup();
 
 function setup() {
   console.log('I got here');
   populateUserSelector();
+  instantiateCurrentInfo();
   displayRecipeList(recipeData);
-  displayOneRecipe(displayedRecipe);
+  displayOneRecipe(currentInformation.displayedRecipe);
+}
+
+function instantiateCurrentInfo() {
+  changeCurrentUser(1);
+  changeDisplayedRecipe(recipeData[0]);
+  instantiateRecipeData();
+}
+
+function changeCurrentUser(id) {
+  const userBasedOnID = usersData.find((user) => {
+    return user.id === id;
+  });
+  currentInformation.currentUser = new User(
+    userBasedOnID.name,
+    userBasedOnID.id,
+    userBasedOnID.pantry
+  );
+}
+
+function changeDisplayedRecipe(recipe) {
+  currentInformation.displayedRecipe = new Recipe(recipe);
+}
+
+function instantiateRecipeData() {
+  currentInformation.allRecipes = recipeData.map((recipe) => {
+    return new Recipe(recipe);
+  });
 }
 
 function populateUserSelector() {
