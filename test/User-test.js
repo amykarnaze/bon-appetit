@@ -9,9 +9,16 @@ describe('User', function () {
   let user1, user2, userBear;
   let recipe1, recipe2, recipe3, recipe4;
   beforeEach(function () {
-   
-    user1 = new User(usersData[0].name, usersData[0].id, usersData[0].pantry);
-    user2 = new User(usersData[1].name, usersData[1].id, usersData[1].pantry);
+    user1 = new User(
+      usersData[0].name,
+      usersData[0].id,
+      new Pantry(usersData[0].pantry)
+    );
+    user2 = new User(
+      usersData[1].name,
+      usersData[1].id,
+      new Pantry(usersData[1].pantry)
+    );
     recipe1 = new Recipe(recipeData[0]);
     recipe2 = new Recipe(recipeData[1]);
     recipe3 = new Recipe(recipeData[3]);
@@ -33,8 +40,8 @@ describe('User', function () {
   });
 
   it('should have an id if there is none', function () {
-    let userNoId = new User ({
-        name: "Name",
+    let userNoId = new User({
+      name: 'Name',
     });
     expect(userNoId.id).to.equal(Math.ceil(Date.now()));
   });
@@ -105,7 +112,7 @@ describe('User', function () {
       user1.addRecipesToCook(recipe1);
       expect(user1.recipesToCook).to.deep.equal([recipe1]);
       user1.removeRecipesToCook(recipe1);
-      expect(user1.recipesToCook).to.deep.equal([])
+      expect(user1.recipesToCook).to.deep.equal([]);
     });
   });
 
@@ -120,10 +127,13 @@ describe('User', function () {
   describe('findRecipesByType', function () {
     it('should be able to find a recipe by type', () => {
       const recipes = [recipe1, recipe2, recipe3, recipe4];
-      recipes.forEach(recipe => {
+      recipes.forEach((recipe) => {
         user1.addFavoriteRecipe(recipe);
       });
-      expect(user1.findRecipesByType('side dish')).to.deep.equal([recipe3, recipe4]);
+      expect(user1.findRecipesByType('side dish')).to.deep.equal([
+        recipe3,
+        recipe4,
+      ]);
       expect(user1.findRecipesByType('starter')).to.deep.equal([recipe1]);
       expect(user1.findRecipesByType('cat')).to.deep.equal([]);
     });
@@ -133,8 +143,12 @@ describe('User', function () {
     it('should be able to find a recipe by name', () => {
       user1.addFavoriteRecipe(recipe1);
       user1.addFavoriteRecipe(recipe2);
-      expect(user1.findRecipesByName('Loaded Chocolate Chip Pudding Cookie Cups')).to.deep.equal([recipe1]);
-      expect(user1.findRecipesByName('Maple Dijon Apple Cider Grilled Pork Chops')).to.deep.equal([recipe2]);
+      expect(
+        user1.findRecipesByName('Loaded Chocolate Chip Pudding Cookie Cups')
+      ).to.deep.equal([recipe1]);
+      expect(
+        user1.findRecipesByName('Maple Dijon Apple Cider Grilled Pork Chops')
+      ).to.deep.equal([recipe2]);
       expect(user1.findRecipesByName('anything')).to.deep.equal([]);
     });
   });
