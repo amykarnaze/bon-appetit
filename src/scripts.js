@@ -1,5 +1,3 @@
-// const ingredientsData = require('../data/ingredients');
-
 var displayedRecipe = new Recipe(recipeData[0]);
 window.onload = setup();
 
