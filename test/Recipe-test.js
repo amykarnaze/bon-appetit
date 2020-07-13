@@ -4,6 +4,7 @@ const chai = require('chai');
 
 const expect = chai.expect;
 var Recipe = require('../src/Recipe');
+const ingredientsData = require('../data/ingredients');
 
 describe('Recipe', function () {
   let recipe;
@@ -161,18 +162,18 @@ describe('Recipe', function () {
     it('should get cost of all ingredients', function () {
       const expectedCost = 142 * 1.5 + 582 * 0.5;
       const missingIngredientList = recipe.ingredients;
-      expect(recipe.getIngredientCost(missingIngredientList)).to.equal(
-        expectedCost
-      );
+      expect(
+        recipe.getIngredientCost(missingIngredientList, ingredientsData)
+      ).to.equal(expectedCost);
     });
 
     it('should get cost of all ingredients with unknown ingredient id', function () {
       recipe.ingredients[0].id = '99999';
       const expectedCost = 582 * 0.5;
       const missingIngredientList = recipe.ingredients;
-      expect(recipe.getIngredientCost(missingIngredientList)).to.equal(
-        expectedCost
-      );
+      expect(
+        recipe.getIngredientCost(missingIngredientList, ingredientsData)
+      ).to.equal(expectedCost);
     });
   });
 
