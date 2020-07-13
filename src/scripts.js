@@ -1,30 +1,26 @@
-const User = require('./User');
+// const User = require('./User');
+// const recipeData = require('../data/recipes');
 
 var currentInformation = {};
 
-/*
-{currentUser= ...,
-displayedRecipe ===
-allRecipes ===}
-*/
 window.onload = setup();
 
 function setup() {
   console.log('I got here');
   populateUserSelector();
-  instatiateCurrentInfo();
+  instantiateCurrentInfo();
   displayRecipeList(recipeData);
   displayOneRecipe(displayedRecipe);
 }
 
-function instatiateCurrentInfo() {
+function instantiateCurrentInfo() {
   changeCurrentUser(1);
   changeDisplayedRecipe(recipeData[0]);
-  instatiateRecipeData();
+  instantiateRecipeData();
 }
 
 function changeCurrentUser(id) {
-  const userBasedOnID = usersDate.find((user) => {
+  const userBasedOnID = usersData.find((user) => {
     user.id === id;
   });
   currentInformation.currentUser = new User(
@@ -36,6 +32,12 @@ function changeCurrentUser(id) {
 
 function changeDisplayedRecipe(recipe) {
   currentInformation.displayedRecipe = new Recipe(recipe);
+}
+
+function instantiateRecipeData() {
+  currentInformation.allRecipes = recipeData.map((recipe) => {
+    return new Recipe(recipe);
+  });
 }
 
 function populateUserSelector() {
