@@ -70,7 +70,7 @@ class Recipe {
       return `${recipeIngredient.quantity.amount}${recipeIngredient.quantity.unit} ${ingredientName}`;
     });
   }
-
+gi
   getInstructionsAsList() {
     /* 
     I have an array of objects representing instructions with key value pairs of both instructions and the instruction number

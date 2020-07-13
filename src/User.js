@@ -112,43 +112,18 @@ class User {
       });
       return acc;
     }, []);
-
-    // console.log(matchedRecipes)
     return matchedRecipes;
   }
 
-  // do search last
-  // function name that takes in the same parameters
-  // invoke each method
-  //
+  findRecipesByInput(input) {
+    let ingredients = this.findRecipesByIngredient(input);
+    let name = this.findRecipesByName(input);
+    let tag = this.findRecipesByType(input);
+    let totalSearch = ingredients.concat(name, tag);
+    let uniqueInput = new Set(totalSearch);
+    return Array.from(uniqueInput);
+  }
 }
-
-// search recipesToCook by name OR ingredient
-// ingredients in data only have id
-// recipesToCook and favorites contain
-// ingredients in pantry
-// ingredients in recipe
-// ingredients class
-
-// user.pantry.ingredients
-
-// A User should be able to determine whether they have sufficient ingredients in their pantry to cook a recipe
-// if they DO NOT: see pantry stories
-// return a list of ingredients they need to buy and how much it will cost
-// (note - User should be able to do this for at least one recipe)
-// push into recipesToCook array
-
-
-// MAKE SINGLE SEARCH METHOD(uses a combination of )
-// findRecipeByName, findRecipeByType, findRecipeByIngredient
-// Needs to not have duplicates
-// if that is possible in the list
-// Used when user presses button after the search field is filled(make a check at some point that the field needs something)
-// That list needs to be sent to a display
-// function so the list changes
-// Make defaults
-// for all of the properties
-
 
 if (typeof module !== 'undefined') {
   module.exports = User;

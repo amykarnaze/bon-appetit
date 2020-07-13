@@ -145,4 +145,15 @@ describe('User', function () {
       expect(user1.findRecipesByIngredient('eggs')).to.deep.equal([recipe1]);
     });
   });
+
+  describe('findRecipesByInput', function () {
+    it('should be able to find a recipe regardless of input', () => {
+      user1.addFavoriteRecipe(recipe1);
+      user1.addFavoriteRecipe(recipe2);
+      expect(user1.findRecipesByInput('eggs')).to.deep.equal([recipe1]);
+      expect(user1.findRecipesByInput('Maple Dijon')).to.deep.equal([recipe2]);
+      expect(user1.findRecipesByInput('starter')).to.deep.equal([recipe1]);
+      expect(user1.findRecipesByInput('anything')).to.deep.equal([]);
+    });
+  });
 });
