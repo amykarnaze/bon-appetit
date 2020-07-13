@@ -188,10 +188,9 @@ describe('Recipe', function () {
 
   describe('getIngredientsAsList', function () {
     it('should return a list of the ingredients', function () {
-      expect(recipe.getIngredientsAsList(recipe.ingredients)).to.deep.equal([
-        '1.5c wheat flour',
-        '0.5tsp bicarbonate of soda',
-      ]);
+      expect(
+        recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
+      ).to.deep.equal(['1.5c wheat flour', '0.5tsp bicarbonate of soda']);
     });
   });
 });

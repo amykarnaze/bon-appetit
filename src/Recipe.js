@@ -36,7 +36,7 @@ class Recipe {
     }, 0);
   }
 
-  getIngredientsAsList(listOfIngredients) {
+  getIngredientsAsList(listOfIngredients, ingredientsData) {
     /* 
     I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
     [
