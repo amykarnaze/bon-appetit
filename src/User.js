@@ -1,6 +1,4 @@
 /* eslint-disable */
-// const ingredientsData = require('../data/ingredients');
-const userData = require('../data/users.js');
 class User {
   constructor(name, id, pantry) {
     this.name = name || 'friend';
