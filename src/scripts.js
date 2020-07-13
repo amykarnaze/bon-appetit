@@ -1,9 +1,11 @@
+var displayedRecipe = new Recipe(recipeData[0]);
 window.onload = setup();
 
 function setup() {
   console.log('I got here');
   populateUserSelector();
   displayRecipeList(recipeData);
+  displayOneRecipe(displayedRecipe);
 }
 
 function populateUserSelector() {
@@ -40,7 +42,7 @@ function displayOneRecipe(recipe) {
   const oneRecipeSection = document.querySelector(
     '.one-recipe-display-section'
   );
-  let oneRecipeInnerHtml = `<section class="one-recipe-display-section">
+  let oneRecipeInnerHtml = `
         <img
           src="${recipe.image}"
           alt="${recipe.name}"
@@ -49,12 +51,27 @@ function displayOneRecipe(recipe) {
           ${recipe.name}
         </h2>
         <article class="one-recipe-ingredients">
-          ${recipeIngredientsFormater(recipe)}
+          ${listAsHTMLList(recipe.getIngredientsAsList(recipe.ingredients))}
         </article>
         <button class="cook-it">Cook It!</button>
         <article class="one-recipe-instructions">
-          ${recipeInstructionsFormater(recipe)}
-        </article>
-      </section>`;
+          ${listAsHTMLList(recipe.getInstructionsAsList())}
+        </article>`;
   oneRecipeSection.innerHTML = oneRecipeInnerHtml;
 }
+
+//I know I need a function that takes in an array of strings
+//The function needs to return a single string in HMTL format
+// the format could be a paragraph or a ul 1st try paragraph
+function listAsHTMLList(ingredientList) {
+  return ingredientList.reduce((paragraph, ingredientNote) => {
+    paragraph += `${ingredientNote} <br>`;
+    return paragraph;
+  }, '');
+}
+
+// I will reach for reduce to return a different data type
+// at each iteration I will add to the accumulator which is a string
+// may need a global recipe that is the displayedRecipe that we can change?
+// may need another helper function that takes in recipe data and instatiates
+// let displayedRecipe = new Recipe()
