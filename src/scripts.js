@@ -34,6 +34,10 @@ function changeCurrentUser(id) {
   );
 }
 
+function changeDisplayedRecipe(recipe) {
+  currentInformation.displayedRecipe = new Recipe(recipe);
+}
+
 function populateUserSelector() {
   const userSelector = document.querySelector('.user-selector');
   let userSelectorInnerHTML = '';
