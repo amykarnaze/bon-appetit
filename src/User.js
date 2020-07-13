@@ -1,6 +1,5 @@
 /* eslint-disable */
-// const Pantry = require('../src/Pantry');
-const ingredientsData = require('../data/ingredients');
+// const ingredientsData = require('../data/ingredients');
 const userData = require('../data/users.js');
 class User {
   constructor(name, id, pantry) {
@@ -105,7 +104,7 @@ class User {
   //     // search savedRecipes for ingredients id
   //     }
   //     }
-  findRecipesByIngredient(ingredientName) {
+  findRecipesByIngredient(ingredientName, ingredientsData) {
     let ingredientId;
     ingredientsData.forEach((ingredient) => {
       if (ingredientName.includes(ingredient.name)) {
@@ -123,8 +122,8 @@ class User {
     return matchedRecipes;
   }
 
-  findRecipesByInput(input) {
-    let ingredients = this.findRecipesByIngredient(input);
+  findRecipesByInput(input, ingredientsData) {
+    let ingredients = this.findRecipesByIngredient(input, ingredientsData);
     let name = this.findRecipesByName(input);
     let tag = this.findRecipesByType(input);
     let totalSearch = ingredients.concat(name, tag);

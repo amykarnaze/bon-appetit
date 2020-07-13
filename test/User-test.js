@@ -5,6 +5,7 @@ const recipeData = require('../data/recipes.js');
 const User = require('../src/User');
 const Recipe = require('../src/Recipe');
 const Pantry = require('../src/Pantry');
+const ingredientsData = require('../data/ingredients.js');
 describe('User', function () {
   let user1, user2, userBear;
   let recipe1, recipe2, recipe3, recipe4;
@@ -156,7 +157,9 @@ describe('User', function () {
   describe('findRecipesByIngredient', function () {
     it('should be able to find a recipe by ingredient', () => {
       user1.addFavoriteRecipe(recipe1);
-      expect(user1.findRecipesByIngredient('eggs')).to.deep.equal([recipe1]);
+      expect(
+        user1.findRecipesByIngredient('eggs', ingredientsData)
+      ).to.deep.equal([recipe1]);
     });
   });
 
@@ -164,10 +167,18 @@ describe('User', function () {
     it('should be able to find a recipe regardless of input', () => {
       user1.addFavoriteRecipe(recipe1);
       user1.addFavoriteRecipe(recipe2);
-      expect(user1.findRecipesByInput('eggs')).to.deep.equal([recipe1]);
-      expect(user1.findRecipesByInput('Maple Dijon')).to.deep.equal([recipe2]);
-      expect(user1.findRecipesByInput('starter')).to.deep.equal([recipe1]);
-      expect(user1.findRecipesByInput('anything')).to.deep.equal([]);
+      expect(user1.findRecipesByInput('eggs', ingredientsData)).to.deep.equal([
+        recipe1,
+      ]);
+      expect(
+        user1.findRecipesByInput('Maple Dijon', ingredientsData)
+      ).to.deep.equal([recipe2]);
+      expect(
+        user1.findRecipesByInput('starter', ingredientsData)
+      ).to.deep.equal([recipe1]);
+      expect(
+        user1.findRecipesByInput('anything', ingredientsData)
+      ).to.deep.equal([]);
     });
   });
 });
