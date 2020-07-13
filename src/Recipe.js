@@ -1,5 +1,5 @@
 /* eslint-disable */
-const ingredientsData = require('../data/ingredients');
+// const ingredientsData = require('../data/ingredients');
 
 class Recipe {
   constructor(recipeData) {
@@ -14,7 +14,7 @@ class Recipe {
   }
 
   // make sure the list of missing ingredients is passed in
-  getIngredientCost(missingIngredientList) {
+  getIngredientCost(missingIngredientList, ingredientsData) {
     return missingIngredientList.reduce((sum, recipeIngredient) => {
       console.log(recipeIngredient);
       // console.log(ingredientsData);
@@ -36,7 +36,7 @@ class Recipe {
     }, 0);
   }
 
-  getIngredientsAsList(listOfIngredients) {
+  getIngredientsAsList(listOfIngredients, ingredientsData) {
     /* 
     I have an array of objects representing ingredients with key value pairs and an object quantity as one of the values as seen below
     [
@@ -70,7 +70,7 @@ class Recipe {
       return `${recipeIngredient.quantity.amount}${recipeIngredient.quantity.unit} ${ingredientName}`;
     });
   }
-gi
+  gi;
   getInstructionsAsList() {
     /* 
     I have an array of objects representing instructions with key value pairs of both instructions and the instruction number

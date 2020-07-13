@@ -1,12 +1,9 @@
 /* eslint-disable */
-const Pantry = require('../src/Pantry');
-const ingredientsData = require('../data/ingredients');
-const userData = require('../data/users.js');
 class User {
   constructor(name, id, pantry) {
     this.name = name || 'friend';
     this.id = id || Math.ceil(Date.now());
-    this.pantry = new Pantry(pantry);
+    this.pantry = pantry;
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }
@@ -27,7 +24,10 @@ class User {
 
   removeFavoriteRecipe(recipeToRemove) {
     // let item = this.favoriteRecipes.indexOf(recipe.id);
-    const targetIndex = this.findRecipeIndex(this.favoriteRecipes, recipeToRemove);    
+    const targetIndex = this.findRecipeIndex(
+      this.favoriteRecipes,
+      recipeToRemove
+    );
     this.favoriteRecipes.splice(targetIndex, 1);
     // #19
   }
@@ -40,25 +40,30 @@ class User {
   }
 
   findRecipe(recipes, recipeToFind) {
-    return recipes.find(recipe => {
+    return recipes.find((recipe) => {
       return recipe.id === recipeToFind.id;
     });
   }
 
   findRecipeIndex(recipes, recipeToFind) {
-    return recipes.findIndex(recipe => {
+    return recipes.findIndex((recipe) => {
       return recipe.id === recipeToFind.id;
     });
   }
 
   removeRecipesToCook(recipeToRemove) {
-    const targetIndex = this.findRecipeIndex(this.recipesToCook, recipeToRemove);
+    const targetIndex = this.findRecipeIndex(
+      this.recipesToCook,
+      recipeToRemove
+    );
     this.recipesToCook.splice(targetIndex, 1);
   }
 
   getSavedRecipes() {
     // how to get unique values from an array
-    const savedRecipesWithDuplicates = this.favoriteRecipes.concat(this.recipesToCook);
+    const savedRecipesWithDuplicates = this.favoriteRecipes.concat(
+      this.recipesToCook
+    );
     const uniqueRecipes = new Set(savedRecipesWithDuplicates);
     //need to get array from set
     return Array.from(uniqueRecipes);
@@ -97,7 +102,7 @@ class User {
   //     // search savedRecipes for ingredients id
   //     }
   //     }
-  findRecipesByIngredient(ingredientName) {
+  findRecipesByIngredient(ingredientName, ingredientsData) {
     let ingredientId;
     ingredientsData.forEach((ingredient) => {
       if (ingredientName.includes(ingredient.name)) {
@@ -115,8 +120,8 @@ class User {
     return matchedRecipes;
   }
 
-  findRecipesByInput(input) {
-    let ingredients = this.findRecipesByIngredient(input);
+  findRecipesByInput(input, ingredientsData) {
+    let ingredients = this.findRecipesByIngredient(input, ingredientsData);
     let name = this.findRecipesByName(input);
     let tag = this.findRecipesByType(input);
     let totalSearch = ingredients.concat(name, tag);

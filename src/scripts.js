@@ -51,7 +51,9 @@ function displayOneRecipe(recipe) {
           ${recipe.name}
         </h2>
         <article class="one-recipe-ingredients">
-          ${listAsHTMLList(recipe.getIngredientsAsList(recipe.ingredients))}
+          ${listAsHTMLList(
+            recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
+          )}
         </article>
         <button class="cook-it">Cook It!</button>
         <article class="one-recipe-instructions">
