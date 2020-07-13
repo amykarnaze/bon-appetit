@@ -1,6 +1,3 @@
-// const User = require('./User');
-// const recipeData = require('../data/recipes');
-
 var currentInformation = {};
 
 window.onload = setup();
@@ -10,7 +7,7 @@ function setup() {
   populateUserSelector();
   instantiateCurrentInfo();
   displayRecipeList(recipeData);
-  displayOneRecipe(displayedRecipe);
+  displayOneRecipe(currentInformation.displayedRecipe);
 }
 
 function instantiateCurrentInfo() {
@@ -21,7 +18,7 @@ function instantiateCurrentInfo() {
 
 function changeCurrentUser(id) {
   const userBasedOnID = usersData.find((user) => {
-    user.id === id;
+    return user.id === id;
   });
   currentInformation.currentUser = new User(
     userBasedOnID.name,
