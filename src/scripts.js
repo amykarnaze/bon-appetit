@@ -8,6 +8,8 @@ document
 document.addEventListener('click', function delegate(event) {
   if (event.target.classList.contains('favorite-button')) {
     favoriteButtonClicked(event);
+  } else if (event.target.classList.contains('recipe-identification')) {
+    recipeImageClicked(event);
   }
 });
 
@@ -65,7 +67,7 @@ function displayRecipeList(recipes) {
   let recipeListInnerHTML = '';
   recipes.forEach((recipe) => {
     recipeListInnerHTML += `<li class="${recipe.id}">
-            <img
+            <img class="recipe-identification ${recipe.id}"
               src="${recipe.image}"
               alt="Photo of ${recipe.name}"
             />
@@ -151,3 +153,11 @@ function listAsHTMLList(ingredientList) {
     return paragraph;
   }, '');
 }
+
+function recipeImageClicked(event) {
+  // console.log(event.target.classList[1], 'found')
+  const recipeImageId = parseInt(event.target.classList[1]);
+  const clickedRecipe = recipeFromID(recipeImageId);
+  console.log('made it', clickedRecipe);
+}
+
