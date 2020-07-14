@@ -10,6 +10,8 @@ document.addEventListener('click', function delegate(event) {
     favoriteButtonClicked(event);
   } else if (event.target.classList.contains('recipe-identification')) {
     recipeImageClicked(event);
+  } else if (event.target.classList.contains('favorite-recipes-tab')) {
+    displayFavoriteRecipes();
   }
 });
 
@@ -159,3 +161,8 @@ function recipeImageClicked(event) {
   const clickedRecipe = recipeFromID(recipeImageId);
   displayOneRecipe(clickedRecipe);
 }
+
+function displayFavoriteRecipes() {
+  displayRecipeList(currentInformation.currentUser.favoriteRecipes);
+}
+
