@@ -15,7 +15,6 @@ function setup() {
 }
 
 function updateCurrentUserDisplay(event) {
-  console.log(typeof parseInt(event.target.value));
   changeCurrentUser(parseInt(event.target.value));
 }
 
