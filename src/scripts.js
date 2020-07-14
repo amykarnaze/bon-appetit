@@ -20,6 +20,7 @@ function setup() {
 }
 
 function favoriteButtonClicked(event) {
+  const button = document.getElementById(`${event.target.id}`);
   const clickedRecipeID = parseInt(event.target.id);
   const containsRecipe = currentInformation.currentUser.favoriteRecipes.includes(
     recipeFromID(clickedRecipeID)
@@ -33,6 +34,7 @@ function favoriteButtonClicked(event) {
       recipeFromID(clickedRecipeID)
     );
   }
+  button.classList.toggle('favorited');
 }
 
 function recipeFromID(id) {
