@@ -155,9 +155,7 @@ function listAsHTMLList(ingredientList) {
 }
 
 function recipeImageClicked(event) {
-  // console.log(event.target.classList[1], 'found')
   const recipeImageId = parseInt(event.target.classList[1]);
   const clickedRecipe = recipeFromID(recipeImageId);
-  console.log('made it', clickedRecipe);
+  displayOneRecipe(clickedRecipe);
 }
-
