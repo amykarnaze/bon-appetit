@@ -105,7 +105,7 @@ class User {
   findRecipesByIngredient(ingredientName, ingredientsData) {
     let ingredientId;
     ingredientsData.forEach((ingredient) => {
-      if (ingredientName.includes(ingredient.name)) {
+      if (ingredientName.toLowerCase().includes(ingred {
         ingredientId = ingredient.id;
       }
     });
