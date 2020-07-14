@@ -1,11 +1,10 @@
+/* eslint-disable */
 var currentInformation = {};
 
 window.onload = setup();
 
-document
-  .querySelector('.user-selector')
-  .addEventListener('change', updateCurrentUser);
 document.addEventListener('click', function delegate(event) {
+  event.preventDefault();
   if (event.target.classList.contains('favorite-button')) {
     favoriteButtonClicked(event);
   } else if (event.target.classList.contains('recipe-identification')) {
@@ -13,7 +12,9 @@ document.addEventListener('click', function delegate(event) {
   } else if (event.target.classList.contains('favorite-recipes-tab')) {
     displayFavoriteRecipes();
   } else if (event.target.classList.contains('all-recipes-tab')) {
-    displayRecipeList(currentInformation.allRecipes)
+    displayRecipeList(currentInformation.allRecipes);
+  } else if (event.target.classList.contains('find-button')) {
+    displayFoundRecipes();
   }
 });
 
@@ -99,8 +100,8 @@ function displayOneRecipe(recipe) {
         </h2>
         <article class="one-recipe-ingredients">
           ${listAsHTMLList(
-            recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
-          )}
+    recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
+  )}
         </article>
         <button class="cook-it">Cook It!</button>
         <article class="one-recipe-instructions">
@@ -168,5 +169,15 @@ function displayFavoriteRecipes() {
   displayRecipeList(currentInformation.currentUser.favoriteRecipes);
 }
 
+function searchBar() {
+  // debugger
+    console.log('before')
+  let searchInput = document.querySelector('#recipe-search').value.toLowerCase();
+  // if (searchInput === '') {
+  //   return;
+  // }
+  console.log('after', searchInput);
+  console.log('after', currentInformation.currentUser.findRecipesByInput(searchInput, ingredientsData));
 
+}
 
