@@ -129,6 +129,8 @@ function recipeFromID(id) {
 
 function updateCurrentUser(event) {
   changeCurrentUser(parseInt(event.target.value));
+  displayRecipeList(currentInformation.allRecipes);
+  colorFavoriteButtons(currentInformation.allRecipes);
 }
 
 function colorFavoriteButtons(recipes) {
