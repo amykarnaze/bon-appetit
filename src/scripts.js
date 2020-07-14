@@ -48,20 +48,23 @@ function updateCurrentUser(event) {
 }
 
 function instantiateCurrentInfo() {
+  instantiateUserData();
   changeCurrentUser(1);
   changeDisplayedRecipe(recipeData[0]);
   instantiateRecipeData();
 }
 
+function instantiateUserData() {
+  currentInformation.allUsers = usersData.map((user) => {
+    return new User(user.name, user.id, new User(user.pantry));
+  });
+}
+
 function changeCurrentUser(id) {
-  const userBasedOnID = usersData.find((user) => {
+  const userBasedOnID = currentInformation.allUsers.find((user) => {
     return user.id === id;
   });
-  currentInformation.currentUser = new User(
-    userBasedOnID.name,
-    userBasedOnID.id,
-    new Pantry(userBasedOnID.pantry)
-  );
+  currentInformation.currentUser = userBasedOnID;
 }
 
 function changeDisplayedRecipe(recipe) {
