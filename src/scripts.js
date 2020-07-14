@@ -4,7 +4,12 @@ window.onload = setup();
 
 document
   .querySelector('.user-selector')
-  .addEventListener('change', updateCurrentUserDisplay);
+  .addEventListener('change', updateCurrentUser);
+document.addEventListener('click', function delegate(event) {
+  if (event.target.classList.contains('favorite-button')) {
+    favoriteButtonClicked(event);
+  }
+});
 
 function setup() {
   console.log('I got here');
@@ -14,7 +19,31 @@ function setup() {
   displayOneRecipe(currentInformation.displayedRecipe);
 }
 
-function updateCurrentUserDisplay(event) {
+function favoriteButtonClicked(event) {
+  const button = document.getElementById(`${event.target.id}`);
+  const clickedRecipeID = parseInt(event.target.id);
+  const containsRecipe = currentInformation.currentUser.favoriteRecipes.includes(
+    recipeFromID(clickedRecipeID)
+  );
+  if (containsRecipe) {
+    currentInformation.currentUser.removeFavoriteRecipe(
+      recipeFromID(clickedRecipeID)
+    );
+  } else {
+    currentInformation.currentUser.addFavoriteRecipe(
+      recipeFromID(clickedRecipeID)
+    );
+  }
+  button.classList.toggle('favorited');
+}
+
+function recipeFromID(id) {
+  return currentInformation.allRecipes.find((recipe) => {
+    return recipe.id === id;
+  });
+}
+
+function updateCurrentUser(event) {
   changeCurrentUser(parseInt(event.target.value));
 }
 
@@ -67,7 +96,7 @@ function displayRecipeList(recipes) {
               alt="Photo of ${recipe.name}"
             />
             <span class="recipe-link">${recipe.name}</span>
-            <button class="favorite-button" alt="Add to Favorites">
+            <button class="favorite-button" alt="Add to Favorites" id="${recipe.id}">
               &#11088;
             </button>
           </li>`;

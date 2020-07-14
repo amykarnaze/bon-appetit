@@ -195,6 +195,10 @@ main {
   color: #283618;
   background-color: #dda15e;
 }
+
+.favorited {
+  background-color: gold;
+}
 /* colors Pallete
 606c38 - medium green
 283618 - dark green
