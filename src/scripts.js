@@ -12,6 +12,8 @@ document.addEventListener('click', function delegate(event) {
     recipeImageClicked(event);
   } else if (event.target.classList.contains('favorite-recipes-tab')) {
     displayFavoriteRecipes();
+  } else if (event.target.classList.contains('all-recipes-tab')) {
+    displayRecipeList(currentInformation.allRecipes)
   }
 });
 
@@ -165,4 +167,6 @@ function recipeImageClicked(event) {
 function displayFavoriteRecipes() {
   displayRecipeList(currentInformation.currentUser.favoriteRecipes);
 }
+
+
 
