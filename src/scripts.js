@@ -2,12 +2,21 @@ var currentInformation = {};
 
 window.onload = setup();
 
+document
+  .querySelector('.user-selector')
+  .addEventListener('change', updateCurrentUserDisplay);
+
 function setup() {
   console.log('I got here');
   populateUserSelector();
   instantiateCurrentInfo();
   displayRecipeList(recipeData);
   displayOneRecipe(currentInformation.displayedRecipe);
+}
+
+function updateCurrentUserDisplay(event) {
+  console.log(typeof parseInt(event.target.value));
+  changeCurrentUser(parseInt(event.target.value));
 }
 
 function instantiateCurrentInfo() {
@@ -23,7 +32,7 @@ function changeCurrentUser(id) {
   currentInformation.currentUser = new User(
     userBasedOnID.name,
     userBasedOnID.id,
-    userBasedOnID.pantry
+    new Pantry(userBasedOnID.pantry)
   );
 }
 
@@ -43,7 +52,7 @@ function populateUserSelector() {
   usersData.forEach((user) => {
     userSelectorInnerHTML =
       userSelectorInnerHTML +
-      `<option value="${user.name}" selected>${user.name}</option>
+      `<option value="${user.id}" selected>${user.name}</option>
       `;
   });
   userSelector.innerHTML = userSelectorInnerHTML;
