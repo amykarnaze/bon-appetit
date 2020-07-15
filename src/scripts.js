@@ -197,6 +197,12 @@ function displayCookable() {
         missingIngredients,
         ingredientsData
       );
+      const missingIngredientsFormatted = listAsHTMLList(
+        currentInformation.displayedRecipe.getIngredientsAsList(
+          missingIngredients,
+          ingredientsData
+        )
+      );
 
 // function searchBar() {
 //   // debugger
