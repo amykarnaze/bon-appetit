@@ -66,8 +66,8 @@ class Recipe {
       const ingredientName = ingredientsData.find((ingredientFromKey) => {
         return ingredientFromKey.id === recipeIngredient.id;
       }).name;
-
-      return `${recipeIngredient.quantity.amount}${recipeIngredient.quantity.unit} ${ingredientName}`;
+      let quantity = recipeIngredient.quantity.amount % 1 === 0 ? recipeIngredient.quantity.amount : recipeIngredient.quantity.amount.toFixed(2);
+      return `${quantity} ${recipeIngredient.quantity.unit} ${ingredientName}`;
     });
   }
 
