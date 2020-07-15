@@ -143,7 +143,6 @@ main {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-auto-rows: minmax(9vh, auto);
-  /* margin: 0 auto; */
   grid-template-areas:
     'img title'
     'img ing'
@@ -200,9 +199,3 @@ main {
 .favorited {
   background-color: gold;
 }
-/* colors Pallete
-606c38 - medium green
-283618 - dark green
-fefae0 - cream
-dda15e - light peach
-bc6c25 - burnt orange */
