@@ -1,9 +1,6 @@
-/* eslint-disable */
-
 const chai = require('chai');
-
 const expect = chai.expect;
-var Recipe = require('../src/Recipe');
+const Recipe = require('../src/Recipe');
 const ingredientsData = require('../data/ingredients');
 
 describe('Recipe', function () {

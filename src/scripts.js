@@ -1,4 +1,3 @@
-/* eslint-disable */
 var currentInformation = {};
 
 window.onload = setup();
@@ -106,8 +105,8 @@ function displayOneRecipe(recipe) {
         </h2>
         <article class="one-recipe-ingredients">
           ${listAsHTMLList(
-            recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
-          )}
+    recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
+  )}
         </article>
         <button class="cook-it">Cook It!</button>
         <article class="one-recipe-instructions">
@@ -147,7 +146,6 @@ function updateCurrentUser(event) {
 }
 
 function colorFavoriteButtons(recipes) {
-  debugger;
   recipes.forEach((recipe) => {
     const favoriteButton = document.getElementById(recipe.id);
     if (
@@ -189,7 +187,6 @@ function displayFoundRecipes() {
 }
 
 function displayCookable() {
-  let alertMessage = '';
   if (
     currentInformation.currentUser.pantry.hasAllIngredients(
       currentInformation.displayedRecipe.ingredients
@@ -202,7 +199,6 @@ function displayCookable() {
     const missingIngredients = currentInformation.currentUser.pantry.findMissingIngredients(
       currentInformation.displayedRecipe
     );
-    console.log(missingIngredients);
     const missingCost = currentInformation.displayedRecipe.getIngredientCost(
       missingIngredients,
       ingredientsData
@@ -222,13 +218,3 @@ function displayCookable() {
       The total Cost is $${missingCost.toFixed(2)}`;
   }
 }
-
-// function searchBar() {
-//   // debugger
-//     console.log('before')
-//   let searchInput = document.querySelector('#recipe-search').value.toLowerCase();
-//   // if (searchInput === '') {
-//   //   return;
-//   // }
-//   console.log('after', searchInput);
-//   console.log('after', currentInformation.currentUser.findRecipesByInput(searchInput, ingredientsData));
