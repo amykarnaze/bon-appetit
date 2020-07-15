@@ -46,8 +46,8 @@ function instantiateCurrentInfo() {
 
 function instantiateUserData() {
   currentInformation.allUsers = usersData.map((user) => {
-    return new User(user.name, user.id, new User(user.pantry));
-  });
+return new User(user.name, user.id, new Pantry(user.pantry));
+});
 }
 
 function changeCurrentUser(id) {
@@ -169,15 +169,21 @@ function displayFavoriteRecipes() {
   displayRecipeList(currentInformation.currentUser.favoriteRecipes);
 }
 
-function searchBar() {
-  // debugger
-    console.log('before')
-  let searchInput = document.querySelector('#recipe-search').value.toLowerCase();
-  // if (searchInput === '') {
-  //   return;
-  // }
-  console.log('after', searchInput);
-  console.log('after', currentInformation.currentUser.findRecipesByInput(searchInput, ingredientsData));
-
+function displayFoundRecipes() {
+  const searchValue = document.querySelector('#recipe-search').value.toLowerCase();
+  const foundRecipes = currentInformation.currentUser.findRecipesByInput(searchValue,ingredientsData);
+  displayRecipeList(foundRecipes);
 }
+
+// function searchBar() {
+//   // debugger
+//     console.log('before')
+//   let searchInput = document.querySelector('#recipe-search').value.toLowerCase();
+//   // if (searchInput === '') {
+//   //   return;
+//   // }
+//   console.log('after', searchInput);
+//   console.log('after', currentInformation.currentUser.findRecipesByInput(searchInput, ingredientsData));
+
+
 
