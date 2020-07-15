@@ -1,4 +1,3 @@
-/* eslint-disable */
 const expect = require('chai').expect;
 const usersData = require('../data/users.js');
 const recipeData = require('../data/recipes.js');
@@ -6,8 +5,9 @@ const User = require('../src/User');
 const Recipe = require('../src/Recipe');
 const Pantry = require('../src/Pantry');
 const ingredientsData = require('../data/ingredients.js');
+
 describe('User', function () {
-  let user1, user2, userBear;
+  let user1, user2;
   let recipe1, recipe2, recipe3, recipe4;
   beforeEach(function () {
     user1 = new User(
@@ -160,7 +160,7 @@ describe('User', function () {
       expect(
         user1.findRecipesByIngredient('eggs', ingredientsData)
       ).to.deep.equal([recipe1]);
-        expect(user1.findRecipesByIngredient('bearbear', ingredientsData)
+      expect(user1.findRecipesByIngredient('bearbear', ingredientsData)
       ).to.deep.equal([]);
     });
   });
