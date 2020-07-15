@@ -178,6 +178,17 @@ function displayFoundRecipes() {
   displayRecipeList(foundRecipes);
 }
 
+function displayCookable() {
+  let alertMessage = '';
+  if (
+    currentInformation.currentUser.pantry.hasAllIngredients(
+      currentInformation.displayedRecipe.ingredients
+    )
+  ) {
+    alert(
+      'You have all of the Ingredients in your pantry!! You are ready to cook'
+    );
+
 // function searchBar() {
 //   // debugger
 //     console.log('before')
