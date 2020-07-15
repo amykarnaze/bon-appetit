@@ -16,6 +16,9 @@ document.addEventListener('click', function delegate(event) {
   } else if (event.target.classList.contains('find-button')) {
     displayFoundRecipes();
   }
+  else if (event.target.classList.contains('cook-it')) {
+    displayCookable();
+  }
 });
 
 function setup() {
@@ -174,6 +177,41 @@ function displayFoundRecipes() {
   const foundRecipes = currentInformation.currentUser.findRecipesByInput(searchValue,ingredientsData);
   displayRecipeList(foundRecipes);
 }
+
+function displayCookable() {
+  let alertMessage = '';
+  if (
+    currentInformation.currentUser.pantry.hasAllIngredients(
+      currentInformation.displayedRecipe.ingredients
+    )
+  ) {
+    alert(
+      'You have all of the Ingredients in your pantry!! You are ready to cook'
+    );
+    } else {
+      const missingIngredients = currentInformation.currentUser.pantry.findMissingIngredients(
+        currentInformation.displayedRecipe
+      );
+      console.log(missingIngredients);
+      const missingCost = currentInformation.displayedRecipe.getIngredientCost(
+        missingIngredients,
+        ingredientsData
+      );
+      const missingIngredientsFormatted = listAsHTMLList(
+        currentInformation.displayedRecipe.getIngredientsAsList(
+          missingIngredients,
+          ingredientsData
+        )
+      );
+      const oneRecipeInstructions = document.querySelector(
+        '.one-recipe-instructions'
+      );
+      oneRecipeInstructions.innerHTML = `Your Pantry is missing some ingredients for this recipe, <br>
+      Here is a shopping list for you: <br>
+      ${missingIngredientsFormatted}
+      The total Cost is $${missingCost.toFixed(2)}`;
+      }
+      }
 
 // function searchBar() {
 //   // debugger
