@@ -188,6 +188,15 @@ function displayCookable() {
     alert(
       'You have all of the Ingredients in your pantry!! You are ready to cook'
     );
+    } else {
+      const missingIngredients = currentInformation.currentUser.pantry.findMissingIngredients(
+        currentInformation.displayedRecipe
+      );
+      console.log(missingIngredients);
+      const missingCost = currentInformation.displayedRecipe.getIngredientCost(
+        missingIngredients,
+        ingredientsData
+      );
 
 // function searchBar() {
 //   // debugger
