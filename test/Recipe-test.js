@@ -190,7 +190,7 @@ describe('Recipe', function () {
     it('should return a list of the ingredients', function () {
       expect(
         recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
-      ).to.deep.equal(['1.5c wheat flour', '0.5tsp bicarbonate of soda']);
+      ).to.deep.equal(['1.50 c wheat flour', '0.50 tsp bicarbonate of soda']);
     });
   });
 });
