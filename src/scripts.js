@@ -146,7 +146,6 @@ function updateCurrentUser(event) {
 }
 
 function colorFavoriteButtons(recipes) {
-  debugger;
   recipes.forEach((recipe) => {
     const favoriteButton = document.getElementById(recipe.id);
     if (
@@ -188,7 +187,6 @@ function displayFoundRecipes() {
 }
 
 function displayCookable() {
-  let alertMessage = '';
   if (
     currentInformation.currentUser.pantry.hasAllIngredients(
       currentInformation.displayedRecipe.ingredients
