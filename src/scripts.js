@@ -147,6 +147,7 @@ function updateCurrentUser(event) {
 }
 
 function colorFavoriteButtons(recipes) {
+  debugger;
   recipes.forEach((recipe) => {
     const favoriteButton = document.getElementById(recipe.id);
     if (
@@ -169,6 +170,7 @@ function recipeImageClicked(event) {
   const recipeImageId = parseInt(event.target.classList[1]);
   const clickedRecipe = recipeFromID(recipeImageId);
   displayOneRecipe(clickedRecipe);
+  changeDisplayedRecipe(clickedRecipe);
 }
 
 function displayFavoriteRecipes() {
