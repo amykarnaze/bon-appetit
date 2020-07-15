@@ -131,7 +131,7 @@ describe('User', function () {
       recipes.forEach((recipe) => {
         user1.addFavoriteRecipe(recipe);
       });
-      expect(user1.findRecipesByType('side dish')).to.deep.equal([
+      expect(user1.findRecipesByType('side')).to.deep.equal([
         recipe3,
         recipe4,
       ]);
@@ -148,7 +148,7 @@ describe('User', function () {
         user1.findRecipesByName('Loaded Chocolate Chip Pudding Cookie Cups')
       ).to.deep.equal([recipe1]);
       expect(
-        user1.findRecipesByName('Maple Dijon Apple Cider Grilled Pork Chops')
+        user1.findRecipesByName('Maple dijon')
       ).to.deep.equal([recipe2]);
       expect(user1.findRecipesByName('anything')).to.deep.equal([]);
     });
@@ -171,7 +171,7 @@ describe('User', function () {
         recipe1,
       ]);
       expect(
-        user1.findRecipesByInput('Maple Dijon', ingredientsData)
+        user1.findRecipesByInput('Maple dijon', ingredientsData)
       ).to.deep.equal([recipe2]);
       expect(
         user1.findRecipesByInput('starter', ingredientsData)
