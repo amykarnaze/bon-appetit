@@ -16,6 +16,9 @@ document.addEventListener('click', function delegate(event) {
   } else if (event.target.classList.contains('find-button')) {
     displayFoundRecipes();
   }
+  else if (event.target.classList.contains('cook-it')) {
+    displayCookable();
+  }
 });
 
 function setup() {
