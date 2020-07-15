@@ -3,6 +3,10 @@ var currentInformation = {};
 
 window.onload = setup();
 
+document
+  .querySelector('.user-selector')
+  .addEventListener('change', updateCurrentUser);
+
 document.addEventListener('click', function delegate(event) {
   event.preventDefault();
   if (event.target.classList.contains('favorite-button')) {
@@ -15,8 +19,7 @@ document.addEventListener('click', function delegate(event) {
     displayRecipeList(currentInformation.allRecipes);
   } else if (event.target.classList.contains('find-button')) {
     displayFoundRecipes();
-  }
-  else if (event.target.classList.contains('cook-it')) {
+  } else if (event.target.classList.contains('cook-it')) {
     displayCookable();
   }
 });
@@ -49,8 +52,8 @@ function instantiateCurrentInfo() {
 
 function instantiateUserData() {
   currentInformation.allUsers = usersData.map((user) => {
-return new User(user.name, user.id, new Pantry(user.pantry));
-});
+    return new User(user.name, user.id, new Pantry(user.pantry));
+  });
 }
 
 function changeCurrentUser(id) {
@@ -103,8 +106,8 @@ function displayOneRecipe(recipe) {
         </h2>
         <article class="one-recipe-ingredients">
           ${listAsHTMLList(
-    recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
-  )}
+            recipe.getIngredientsAsList(recipe.ingredients, ingredientsData)
+          )}
         </article>
         <button class="cook-it">Cook It!</button>
         <article class="one-recipe-instructions">
@@ -144,6 +147,7 @@ function updateCurrentUser(event) {
 }
 
 function colorFavoriteButtons(recipes) {
+  debugger;
   recipes.forEach((recipe) => {
     const favoriteButton = document.getElementById(recipe.id);
     if (
@@ -166,6 +170,7 @@ function recipeImageClicked(event) {
   const recipeImageId = parseInt(event.target.classList[1]);
   const clickedRecipe = recipeFromID(recipeImageId);
   displayOneRecipe(clickedRecipe);
+  changeDisplayedRecipe(clickedRecipe);
 }
 
 function displayFavoriteRecipes() {
@@ -173,8 +178,13 @@ function displayFavoriteRecipes() {
 }
 
 function displayFoundRecipes() {
-  const searchValue = document.querySelector('#recipe-search').value.toLowerCase();
-  const foundRecipes = currentInformation.currentUser.findRecipesByInput(searchValue,ingredientsData);
+  const searchValue = document
+    .querySelector('#recipe-search')
+    .value.toLowerCase();
+  const foundRecipes = currentInformation.currentUser.findRecipesByInput(
+    searchValue,
+    ingredientsData
+  );
   displayRecipeList(foundRecipes);
 }
 
@@ -188,30 +198,30 @@ function displayCookable() {
     alert(
       'You have all of the Ingredients in your pantry!! You are ready to cook'
     );
-    } else {
-      const missingIngredients = currentInformation.currentUser.pantry.findMissingIngredients(
-        currentInformation.displayedRecipe
-      );
-      console.log(missingIngredients);
-      const missingCost = currentInformation.displayedRecipe.getIngredientCost(
+  } else {
+    const missingIngredients = currentInformation.currentUser.pantry.findMissingIngredients(
+      currentInformation.displayedRecipe
+    );
+    console.log(missingIngredients);
+    const missingCost = currentInformation.displayedRecipe.getIngredientCost(
+      missingIngredients,
+      ingredientsData
+    );
+    const missingIngredientsFormatted = listAsHTMLList(
+      currentInformation.displayedRecipe.getIngredientsAsList(
         missingIngredients,
         ingredientsData
-      );
-      const missingIngredientsFormatted = listAsHTMLList(
-        currentInformation.displayedRecipe.getIngredientsAsList(
-          missingIngredients,
-          ingredientsData
-        )
-      );
-      const oneRecipeInstructions = document.querySelector(
-        '.one-recipe-instructions'
-      );
-      oneRecipeInstructions.innerHTML = `Your Pantry is missing some ingredients for this recipe, <br>
+      )
+    );
+    const oneRecipeInstructions = document.querySelector(
+      '.one-recipe-instructions'
+    );
+    oneRecipeInstructions.innerHTML = `Your Pantry is missing some ingredients for this recipe, <br>
       Here is a shopping list for you: <br>
       ${missingIngredientsFormatted}
       The total Cost is $${missingCost.toFixed(2)}`;
-      }
-      }
+  }
+}
 
 // function searchBar() {
 //   // debugger
@@ -222,6 +232,3 @@ function displayCookable() {
 //   // }
 //   console.log('after', searchInput);
 //   console.log('after', currentInformation.currentUser.findRecipesByInput(searchInput, ingredientsData));
-
-
-
