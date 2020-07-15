@@ -203,6 +203,15 @@ function displayCookable() {
           ingredientsData
         )
       );
+      const oneRecipeInstructions = document.querySelector(
+        '.one-recipe-instructions'
+      );
+      oneRecipeInstructions.innerHTML = `Your Pantry is missing some ingredients for this recipe, <br>
+      Here is a shopping list for you: <br>
+      ${missingIngredientsFormatted}
+      The total Cost is $${missingCost.toFixed(2)}`;
+      }
+      }
 
 // function searchBar() {
 //   // debugger
