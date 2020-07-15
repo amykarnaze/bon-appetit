@@ -71,13 +71,13 @@ class User {
   //search recipesToCook OR favoriteRecipes by type
   findRecipesByType(tagName) {
     return this.getSavedRecipes().filter((recipe) => {
-      return recipe.tags.includes(tagName);
+      return recipe.tags.join(' ').toLowerCase().includes(tagName.toLowerCase())
     });
   }
 
   findRecipesByName(name) {
     return this.getSavedRecipes().filter((recipe) => {
-      return recipe.name.includes(name);
+      return recipe.name.toLowerCase().includes(name.toLowerCase());
     });
   }
 
@@ -105,7 +105,7 @@ class User {
   findRecipesByIngredient(ingredientName, ingredientsData) {
     let ingredientId;
     ingredientsData.forEach((ingredient) => {
-      if (ingredientName.includes(ingredient.name)) {
+      if (ingredientName.toLowerCase().includes(ingredient.name)) {
         ingredientId = ingredient.id;
       }
     });
