@@ -160,6 +160,8 @@ describe('User', function () {
       expect(
         user1.findRecipesByIngredient('eggs', ingredientsData)
       ).to.deep.equal([recipe1]);
+        expect(user1.findRecipesByIngredient('bearbear', ingredientsData)
+      ).to.deep.equal([]);
     });
   });
 
