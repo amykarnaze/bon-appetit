@@ -44,7 +44,7 @@ describe('User', function () {
     let userNoId = new User({
       name: 'Name',
     });
-    expect(userNoId.id).to.equal(Math.ceil(Date.now()));
+    expect(userNoId.id).to.equal(Date.now());
   });
 
   it('should have a property of name', () => {
