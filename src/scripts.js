@@ -1,7 +1,12 @@
 var currentInformation = {};
 
-window.onload = setup();
-
+window.onload = setup;
+// window onload is an event and it will execute setup
+// diff bt putting a refernece to a func and executing
+// window.onload = function() {
+  // setup();
+// } same thing as line 3
+// window.addEventListener('load', setup)
 document
   .querySelector('.user-selector')
   .addEventListener('change', updateCurrentUser);
