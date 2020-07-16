@@ -18,7 +18,7 @@ To view this application,
 
 ### How to see the product
 
-View the ![Live Page](https://github.com/amykarnaze/bon-appetit)
+View the [Live Page](https://github.com/amykarnaze/bon-appetit)
 
 ### App in Action
 
@@ -43,8 +43,8 @@ If not, A list will be provided that lists the missing ingredients and the total
 
 ## Resources
 
-![Project Spec](https://frontend.turing.io/projects/whats-cookin.html)
-!Project Board](https://github.com/amykarnaze/bon-appetit/projects)
+[Project Spec](https://frontend.turing.io/projects/whats-cookin.html)
+[Project Board](https://github.com/amykarnaze/bon-appetit/projects)
 
 ## Acknowledgements
 
