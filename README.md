@@ -43,8 +43,9 @@ If not, A list will be provided that lists the missing ingredients and the total
 
 ## Resources
 
-[Project Spec](https://frontend.turing.io/projects/whats-cookin.html)
-[Project Board](https://github.com/amykarnaze/bon-appetit/projects)
+View the Turing schools, [Project Spec](https://frontend.turing.io/projects/whats-cookin.html)
+
+GitHub [Project Board](https://github.com/amykarnaze/bon-appetit/projects)
 
 ## Acknowledgements
 
