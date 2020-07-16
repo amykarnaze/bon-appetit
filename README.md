@@ -1,13 +1,11 @@
 # Bon Appetit
 
-An image of the product logo.  
 ![logo](READMEimages/logo.png)
 
 ### Abstract
 
 In this partner project, we created a recipe tracking and meal planning application. Users can favorite recipes, search for their favorited recipes by type, ingredient and tag and view individual reicpe details. If a user chooses to cook a recipe, they are able to view the needed ingredients to cook the recipe and the price of the missing ingredients.
 The project utilized TDD with Mocha/Chai, HTML/CSS UX/UI design, array prototypes and implementatin of ES6 classes.
-
 
 ### SetUp
 
@@ -20,20 +18,20 @@ To view this application,
 
 ### How to see the product
 
-[Current Live Page](https://github.com/amykarnaze/bon-appetit)
+![Current Live Page](https://github.com/amykarnaze/bon-appetit)
 
 ### App in Action
 
 A user can favorite and perform a search in there favorited recipes.
-[search](https://media.giphy.com/media/S8a4RapUk4oDU5N9US/giphy.gif)
+![search](https://media.giphy.com/media/S8a4RapUk4oDU5N9US/giphy.gif)
 
 A user can favorite recipes and determine if there pantry contains the required ingredients. 
 
-[cook it!](https://media.giphy.com/media/ie2SLdeGUebM5jJ0XP/giphy.gif)
+![cook it!](https://media.giphy.com/media/ie2SLdeGUebM5jJ0XP/giphy.gif)
 
 If not, A list will be provided that lists the missing ingredients and the total cost of those missing ingredients.
 
-[What ingredients are missing?](https://media.giphy.com/media/hV7QFQ1C2KePfZJyDM/giphy.gif)
+![What ingredients are missing?](https://media.giphy.com/media/hV7QFQ1C2KePfZJyDM/giphy.gif)
 
 ## Authors
 
@@ -45,8 +43,8 @@ If not, A list will be provided that lists the missing ingredients and the total
 
 ## Resources
 
-[Project Spec](https://frontend.turing.io/projects/whats-cookin.html)
-[Project Board](https://github.com/amykarnaze/bon-appetit/projects)
+![Project Spec](https://frontend.turing.io/projects/whats-cookin.html)
+!Project Board](https://github.com/amykarnaze/bon-appetit/projects)
 
 ## Acknowledgements
 
