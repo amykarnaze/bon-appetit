@@ -11,14 +11,14 @@ The project utilized TDD with Mocha/Chai, HTML/CSS UX/UI design, array prototype
 
 To view this application,
 1) Clone down the repository button and copy the link, [git clone](git@github.com:amykarnaze/bon-appetit.git).
-3. Cd into the project
-2) Run 'npm install'.
-3) Run 'npm test' to see tests pass.
-4) Type 'open index.html' to see the site in action.
+2) Cd into the project
+3) Run 'npm install'.
+4) Run 'npm test' to see tests pass.
+5) Type 'open index.html' to see the site in action.
 
 ### How to see the product
 
-![Current Live Page](https://github.com/amykarnaze/bon-appetit)
+View the ![Live Page](https://github.com/amykarnaze/bon-appetit)
 
 ### App in Action
 
