@@ -4,25 +4,36 @@ An image of the product logo.
 ![logo](READMEimages/logo.png)
 
 ### Abstract
-In this partner project, we created a recipe tracking and meal planning application. Users can favorite recipes, search for their favorited recipes by type, ingredient and tag and view individual reicpe details. If a user chooses to cook a recipe, they are able to view the needed ingredients to cook the recipe and the price of the missing ingredients.
 
+In this partner project, we created a recipe tracking and meal planning application. Users can favorite recipes, search for their favorited recipes by type, ingredient and tag and view individual reicpe details. If a user chooses to cook a recipe, they are able to view the needed ingredients to cook the recipe and the price of the missing ingredients.
 The project utilized TDD with Mocha/Chai, HTML/CSS UX/UI design, array prototypes and implementatin of ES6 classes.
 
-## SetUp
+
+### SetUp
 
 To view this application,
-1) Clone down the repoitory button and copy the link, 'git clone (git@github.com:amykarnaze/bon-appetit.git').3. cd into the project
-2) Once installed, run 'npm install'.
+1) Clone down the repository button and copy the link, [git clone](git@github.com:amykarnaze/bon-appetit.git).
+3. Cd into the project
+2) Run 'npm install'.
 3) Run 'npm test' to see tests pass.
-4) Type open index.html to see the site in action.
+4) Type 'open index.html' to see the site in action.
 
 ### How to see the product
 
-[Project Link](https://github.com/amykarnaze/bon-appetit)
+[Current Live Page](https://github.com/amykarnaze/bon-appetit)
 
 ### App in Action
 
-[Live Link](https://google.com)
+A user can favorite and perform a search in there favorited recipes.
+[Search](https://media.giphy.com/media/S8a4RapUk4oDU5N9US/giphy.gif)
+
+A user can favorite recipes and determine if there pantry contains the required ingredients. 
+
+[cook it!](https://media.giphy.com/media/ie2SLdeGUebM5jJ0XP/giphy.gif)
+
+If not, A list will be provided that lists the missing ingredients and the total cost of those missing ingredients.
+
+[What ingredients are missing?](https://media.giphy.com/media/hV7QFQ1C2KePfZJyDM/giphy.gif)
 
 ## Authors
 
@@ -32,13 +43,10 @@ To view this application,
 👤 **Amy Karnaze**
 - Github: [amykarnaze](https://github.com/amykarnaze/bon-appetit/commits?author=relyt4me)
 
-## ScreenShots of Functionality
-
-![screenshot](images/image.png)
-
 ## Resources
 
-[Project Spec]](https://frontend.turing.io/projects/whats-cookin.html)
+[Project Spec](https://frontend.turing.io/projects/whats-cookin.html)
+[Project Board](https://github.com/amykarnaze/bon-appetit/projects)
 
 ## Acknowledgements
 
@@ -47,3 +55,4 @@ Kirk Veitch was able to perform a code review via the paired application.
 ### Next plan
 
 In the future, we would like to be able to add recipes to increase the application, so the User has access to all of their favorite recipes.
+

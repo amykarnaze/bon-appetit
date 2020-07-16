@@ -1,7 +1,7 @@
 class User {
   constructor(name, id, pantry) {
     this.name = name || 'friend';
-    this.id = id || Math.ceil(Date.now());
+    this.id = id || Date.now();
     this.pantry = pantry;
     this.favoriteRecipes = [];
     this.recipesToCook = [];
