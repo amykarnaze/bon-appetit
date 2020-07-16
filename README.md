@@ -25,7 +25,7 @@ To view this application,
 ### App in Action
 
 A user can favorite and perform a search in there favorited recipes.
-[Search](https://media.giphy.com/media/S8a4RapUk4oDU5N9US/giphy.gif)
+[search](https://media.giphy.com/media/S8a4RapUk4oDU5N9US/giphy.gif)
 
 A user can favorite recipes and determine if there pantry contains the required ingredients. 
 
@@ -55,4 +55,3 @@ Kirk Veitch was able to perform a code review via the paired application.
 ### Next plan
 
 In the future, we would like to be able to add recipes to increase the application, so the User has access to all of their favorite recipes.
-
