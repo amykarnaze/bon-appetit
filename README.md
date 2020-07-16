@@ -1,12 +1,13 @@
-# Bon Appetit 
+# Bon Appetit
 
 An image of the product logo.  
-![logo](images/image.png)
+![logo](READMEimages/logo.png)
 
 ### Abstract
-In this partner project, we created a recipe tracking and meal planning application. Users can favorite recipes, serach their favorited recipes by type, ingredient and tag and view individual reicpes. If a user chooses to cook a recipe, they are able to view the needed ingredients to cook the recipe and the price of the missing ingredients.
 
-The project utilized TDD with Mocha/Chai, HTML/CSS UX/UI design, array prototypes, inplementatin of ES6 classes.
+In this partner project, we created a recipe tracking and meal planning application. Users can favorite recipes, search for their favorited recipes by type, ingredient and tag and view individual reicpe details. If a user chooses to cook a recipe, they are able to view the needed ingredients to cook the recipe and the price of the missing ingredients.
+The project utilized TDD with Mocha/Chai, HTML/CSS UX/UI design, array prototypes and implementatin of ES6 classes.
+
 
 ### SetUp
 
@@ -49,6 +50,9 @@ If not, A list will be provided that lists the missing ingredients and the total
 
 ## Acknowledgements
 
-Kirk Veitch, who helped with a code review
+Kirk Veitch was able to perform a code review via the paired application.
 
 ### Next plan
+
+In the future, we would like to be able to add recipes to increase the application, so the User has access to all of their favorite recipes.
+
